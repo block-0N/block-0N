@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙港公交POV合集</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 页面基础样式 */
+        body {
+            font-family: "Microsoft YaHei", "Heiti SC", sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 标题样式 */
+        .page-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #2c3e50;
+            margin: 20px 0 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        /* 公交列表容器 */
+        .bus-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            list-style: none;
+        }
+
+        /* 列表项样式 */
+        .bus-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 12px 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* 悬停效果 */
+        .bus-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 链接样式 */
+        .bus-link {
+            text-decoration: none;
+            color: #3498db;
+            font-size: 1rem;
+            display: block;
+        }
+
+        .bus-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* 特殊标注样式 */
+        .special-tag {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-left: 5px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 600px) {
+            .bus-list {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title">龙港公交POV合集</h1>
+    
+    <ul class="bus-list">
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1c6U5BAEA6/?spm_id_from=333.337.search-card.all.click/" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港1路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1QqqrBfEJh/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港2路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1ACYbzpE1q/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港5路公交视频<span class="special-tag">侧方展望</span>
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1NW4TeRE4p/?spm_id_from=333.337.search-card.all.click" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港5路公交视频<span class="special-tag">旧版</span>
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1QU2tBjEh5/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港6路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1a7BxBnEPB/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港7路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1TU4y1P7r3/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港8路公交视频<span class="special-tag">已停运</span>
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV17gCQBSEQm/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港9路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1hjUWBzEiZ/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港10路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1uzmqBMEuH/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港11路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1n3mABbEDH/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港12路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1FCydBqET6/?spm_id_from=333.337.search-card.all.click" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港13路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1VkxEzoEHD/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港15路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1oRxbzbEyC/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港16路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1qRCQBUETX/?spm_id_from=333.1387.collection.video_card.click" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港17路公交视频<span class="special-tag">旧版</span>
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1W92YBEE9A/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港A5路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1c142187w7/?spm_id_from=333.337.search-card.all.click" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港D01路公交视频<span class="special-tag">旧版</span>
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1ADsSzfEQZ/?spm_id_from=333.337.search-card.all.click" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港K001路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1UxSnBfEvC/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港K002路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1eYhizsEUa/?spm_id_from=333.337.search-card.all.click" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港K003路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1D1UKBdEuu/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港K005路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1bRPKeNEyq/?spm_id_from=333.337.search-card.all.click" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港801路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1sqm9BCEns/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港802路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1CUmABPEEF/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港803路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1UHi3BeELA/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港806路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1GyqVBnERX/?spm_id_from=333.337.search-card.all.click" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港807路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1Pr4y1J7k3/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                龙港808路公交视频
+            </a>
+        </li>
+        <li class="bus-item">
+            <a href="https://www.bilibili.com/video/BV1uxUjBnEbK/?spm_id_from=333.337.search-card.all.click&vd_source=5d4c36e970626a1adae5df8f02e733da" 
+               class="bus-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                温龙快客公交视频
+            </a>
+        </li>
+    </ul>
+</body>
+</html>
