@@ -5,28 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>温州县域公交·龙港-苍南公交</title>
     <style>
-        /* 全局样式重置 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* 页面基础样式 */
         body {
             font-family: "Microsoft YaHei", "Heiti SC", sans-serif;
             background-color: #f0f4f8;
             color: #333;
             line-height: 1.6;
             padding: 20px;
-            max-width: 1000px; /* 适度加宽适配新增内容 */
+            max-width: 1000px; 
             margin: 0 auto;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* 顶部导航栏（新增） */
         .header-nav {
             display: flex;
             justify-content: space-between;
@@ -59,7 +56,6 @@
             font-weight: 500;
         }
 
-        /* 搜索框（新增） */
         .search-container {
             max-width: 500px;
             margin: 0 auto 30px;
@@ -99,7 +95,6 @@
             background-color: #2980b9;
         }
 
-        /* 信息更新提示（新增） */
         .update-tip {
             background-color: #e8f4fd;
             border-left: 4px solid #3498db;
@@ -111,7 +106,6 @@
             color: #2c3e50;
         }
 
-        /* 标题样式 */
         .page-title {
             text-align: center;
             font-size: 2rem;
@@ -122,7 +116,6 @@
             text-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
-        /* 内容分类标题（新增） */
         .category-title {
             font-size: 1.3rem;
             color: #2c3e50;
@@ -131,7 +124,6 @@
             border-left: 3px solid #3498db;
         }
 
-        /* 区域列表容器 */
         .area-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -141,7 +133,6 @@
             flex: 1;
         }
 
-        /* 列表项样式 */
         .area-item {
             background-color: white;
             border-radius: 10px;
@@ -154,7 +145,6 @@
             overflow: hidden;
         }
 
-        /* 列表项悬停装饰 */
         .area-item::before {
             content: '';
             position: absolute;
@@ -167,7 +157,6 @@
             transition: transform 0.3s ease;
         }
 
-        /* 悬停效果 */
         .area-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
@@ -178,7 +167,6 @@
             transform: translateX(0);
         }
 
-        /* 链接样式 */
         .area-link {
             text-decoration: none;
             color: #2980b9;
@@ -195,7 +183,6 @@
             text-underline-offset: 4px;
         }
 
-        /* 描述文本 */
         .area-desc {
             margin-top: 10px;
             color: #666;
@@ -204,7 +191,6 @@
             text-indent: 2em;
         }
 
-        /* 公交服务小贴士（新增） */
         .tips-section {
             background-color: white;
             border-radius: 10px;
@@ -230,7 +216,6 @@
             margin-bottom: 8px;
         }
 
-        /* 页脚样式 */
         .footer {
             margin-top: 40px;
             text-align: center;
@@ -240,7 +225,6 @@
             border-top: 1px solid #e0e6ed;
         }
 
-        /* 响应式调整 */
         @media (max-width: 768px) {
             .nav-menu {
                 gap: 10px;
@@ -289,7 +273,6 @@
     </style>
 </head>
 <body>
-    <!-- 新增顶部导航栏 -->
     <header class="header-nav">
         <div class="nav-logo">温州县域公交</div>
         <nav class="nav-menu">
@@ -299,20 +282,17 @@
         </nav>
     </header>
 
-    <!-- 新增信息更新提示 -->
     <div class="update-tip">
         <strong>更新提示：</strong> <a href="20260216-0218notice.html" class="nav-link">春节假期公交班次调整，点此查看。</a>
     </div>
 
     <h1 class="page-title">温州县域公交·龙港-苍南公交</h1>
 
-    <!-- 新增搜索功能 -->
     <div class="search-container">
         <input type="text" id="search-input" placeholder="搜索公交线路">
         <button class="search-btn" onclick="searchRoute()">搜索</button>
     </div>
 
-    <!-- 新增分类标题 -->
     <h2 class="category-title">POV视频合集</h2>
     <ul class="area-list">
         <li class="area-item">
@@ -407,9 +387,7 @@
         <p>数据更新时间：2026年2月 | 联系电话：17857746331</p>
     </div>
 
-    <!-- 新增搜索功能脚本 -->
     <script>
-        // 简单的搜索功能实现
         function searchRoute() {
             const searchInput = document.getElementById('search-input');
             const keyword = searchInput.value.trim().toLowerCase();
@@ -419,7 +397,6 @@
                 return;
             }
 
-            // 模拟搜索匹配（实际项目可对接后端接口）
             const routeMap = {
                 '龙港1路': 'longgangbusintroduction.html',
                 '龙港2路': 'longgangbusintroduction.html',
@@ -431,7 +408,6 @@
                 '苍南107路': 'cangnanbuspov.html'
             };
 
-            // 查找匹配的线路
             let targetUrl = null;
             for (const [routeName, url] of Object.entries(routeMap)) {
                 if (routeName.toLowerCase().includes(keyword)) {
@@ -446,11 +422,9 @@
                 alert(`未找到包含"${keyword}"的公交线路，您可查看线路合集获取更多信息`);
             }
             
-            // 清空搜索框
             searchInput.value = '';
         }
 
-        // 支持回车触发搜索
         document.getElementById('search-input').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 searchRoute();
