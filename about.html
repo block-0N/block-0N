@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 温州县域公交·龙港-苍南公交</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 页面基础样式 */
+        body {
+            font-family: "Microsoft YaHei", "Heiti SC", sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 顶部导航栏 */
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e0e6ed;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #555;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #2980b9;
+            font-weight: 500;
+        }
+
+        /* 标题样式 */
+        .page-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #2c3e50;
+            margin: 10px 0 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #2980b9;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        /* 关于我们内容容器 */
+        .about-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 20px 0;
+            flex: 1;
+        }
+
+        /* 内容标题 */
+        .about-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin: 25px 0 15px;
+            padding-left: 10px;
+            border-left: 3px solid #3498db;
+        }
+
+        /* 段落样式 */
+        .about-text {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-indent: 2em;
+        }
+
+        /* 联系方式模块 */
+        .contact-box {
+            background-color: #e8f4fd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .contact-title {
+            font-size: 1.2rem;
+            color: #2980b9;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .contact-list {
+            list-style: none;
+            color: #2c3e50;
+        }
+
+        .contact-list li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .contact-list li span {
+            font-weight: 500;
+            margin-right: 8px;
+        }
+
+        /* 免责声明 */
+        .disclaimer {
+            font-size: 0.9rem;
+            color: #777;
+            line-height: 1.7;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #e0e6ed;
+        }
+
+        /* 页脚样式 */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px 0;
+            color: #888;
+            font-size: 0.85rem;
+            border-top: 1px solid #e0e6ed;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header-nav {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin: 15px 0 20px;
+            }
+
+            .about-title {
+                font-size: 1.1rem;
+            }
+
+            .about-text {
+                font-size: 0.9rem;
+                text-indent: 1em;
+            }
+
+            .contact-box {
+                padding: 15px;
+            }
+
+            .contact-title {
+                font-size: 1.1rem;
+            }
+
+            .contact-list li {
+                font-size: 0.9rem;
+            }
+
+            .disclaimer {
+                font-size: 0.85rem;
+            }
+
+            .footer {
+                margin-top: 30px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header-nav">
+        <div class="nav-logo">温州县域公交</div>
+        <nav class="nav-menu">
+            <a href="https://www.mygolbs.com/home" class="nav-link">实时公交</a>
+            <a href="busindex.html" class="nav-link">返回首页</a>
+            <a href="tips.html" class="nav-link">乘车指南</a>
+        </nav>
+    </header>
+
+    <h1 class="page-title">关于我们</h1>
+
+    <!-- 关于我们核心内容 -->
+    <div class="about-container">
+        <h2 class="about-title">平台简介</h2>
+        <p class="about-text">
+            温州县域公交·龙港-苍南公交信息平台是专注于龙港、苍南两地公交出行服务的公益性信息平台，旨在为本地居民及外来访客提供全面、准确、及时的公交线路信息，解决公交出行信息查询不便的问题。
+        </p>
+        <p class="about-text">
+            平台自上线以来，持续收集整理龙港、苍南区域内的公交线路POV视频、路线图、线路运营概况等信息，力求覆盖两地所有常规公交线路，为用户的日常出行、出行规划提供可靠参考。
+        </p>
+        <p class="about-text">
+            我们坚持公益性原则，所有信息均免费向用户开放，不收取任何查询费用，平台的运营主要依靠志愿者的信息收集与维护，以及热心用户的反馈与支持。
+        </p>
+
+        <h2 class="about-title">我们的宗旨</h2>
+        <p class="about-text">
+            以用户需求为核心，以信息准确为基础，以服务便捷为目标，打造龙港-苍南地区最实用的公交信息查询平台，助力本地公共交通出行的便捷化、透明化，提升市民出行体验。
+        </p>
+        <p class="about-text">
+            我们会定期更新公交线路的调整信息、站点变化、运营时间变更等内容，确保平台信息与实际运营情况保持一致，同时也欢迎用户反馈信息错误或遗漏，共同完善平台内容。
+        </p>
+
+        <h2 class="about-title">联系方式</h2>
+        <div class="contact-box">
+            <h3 class="contact-title">联系我们</h3>
+            <ul class="contact-list">
+                <li><span>邮箱：</span>bus_info@wz-example.com</li>
+                <li><span>反馈热线：</span>0577-12345（按交通类转接）</li>
+                <li><span>信息纠错反馈：</span>可发送邮件说明具体问题，我们会在3个工作日内处理</li>
+                <li><span>合作洽谈：</span>请在邮件中注明“合作洽谈”+具体合作内容</li>
+            </ul>
+        </div>
+
+        <div class="disclaimer">
+            <strong>免责声明：</strong>
+            本平台提供的公交线路信息仅供参考，实际运营以公交公司官方发布及现场运营情况为准。本平台不承担因信息更新不及时、信息误差等导致的出行不便或损失。如需精准出行信息，建议拨打公交服务热线或咨询站点工作人员。平台内的POV视频、路线图等内容均为志愿者整理制作，禁止商用转载，如需非商用转载请注明出处。
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>温州县域公交信息平台 © 2026 版权所有</p>
+        <p>温馨提示：本平台为公益性信息平台，无任何商业运营行为</p>
+        <p>数据更新时间：2026年2月 | 联系电话：17857746331</p>
+    </div>
+</body>
+</html>
