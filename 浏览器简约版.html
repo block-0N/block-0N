@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简约导航主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fa {
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 1;
+            width: 1.2em;
+        }
+        .fa-exchange:before { content: "🔄"; }
+        .fa-moon-o:before { content: "🌙"; }
+        .fa-sun-o:before { content: "☀️"; }
+        .fa-search:before { content: "🔍"; }
+        .dark-mode {
+            --bg-primary: #1e293b;
+            --bg-secondary: #0f172a;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --card-bg: #334155;
+            --card-hover: #475569;
+            --primary-color: #3b82f6;
+        }
+        
+        .light-mode {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --card-bg: #ffffff;
+            --card-hover: #f8fafc;
+            --primary-color: #2563eb;
+        }
+        body {
+            transition: all 0.3s ease;
+        }
+    </style>
+    <script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: '#2563eb',
+                secondary: '#475569',
+                accent: '#8b5cf6',
+                dark: '#0f172a',
+                light: '#f1f5f9'
+            },
+            fontFamily: {
+                inter: ['Inter', 'system-ui', 'sans-serif'],
+            },
+        }
+    }
+}
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto { content-visibility: auto; }
+            .bg-dynamic {
+                background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+                background-size: 400% 400%;
+                animation: gradient 15s ease infinite;
+            }
+            @keyframes gradient {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+            .search-focus { @apply border-primary ring-2 ring-primary/20; }
+        }
+    </style>
+</head>
+<body class="bg-dynamic min-h-screen flex flex-col items-center justify-center p-4 font-inter light-mode">
+    <div class="w-full max-w-5xl mx-auto mb-6 flex justify-end gap-3 flex-wrap">
+        <button id="theme-toggle" class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow flex items-center gap-2">
+            <i class="fa fa-moon-o text-slate-600"></i>
+            <span id="theme-text" class="text-sm font-medium">深色模式</span>
+        </button>
+        <button id="version-toggle" class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow flex items-center gap-2">
+            <i class="fa fa-exchange text-slate-600"></i>
+            <a href="浏览器普通版.html">切换至普通版</a>
+        </button>
+    </div>
+        <div class="w-full max-w-2xl mb-8 relative">
+            <input type="text" id="search-input" placeholder="输入搜索内容" 
+                class="w-full py-4 px-6 pr-20 rounded-full border border-slate-200 focus:search-focus outline-none transition-all bg-white/90 shadow-md">
+            <select id="search-engine" class="absolute right-16 top-1/2 -translate-y-1/2 bg-transparent border-0 text-secondary focus:outline-none text-sm">
+                <option value="baidu">百度</option>
+                <option value="google">谷歌</option>
+                <option value="bing">必应</option>
+            </select>
+            <button id="search-btn" class="absolute right-3 top-1/2 -translate-y-1/2 text-secondary hover:text-primary transition-colors p-1 rounded-full hover:bg-primary/10">
+                <i class="fa fa-search text-xl"></i>
+            </button>
+        </div>            
+    <script>
+        // 深色模式
+        function shouldUseDarkMode() {
+            const hour = new Date().getHours();
+            return hour >= 18 || hour < 6;
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.querySelector('#theme-toggle .fa');
+            const themeText = document.getElementById('theme-text');
+            
+            const isDark = body.classList.contains('dark-mode');
+            
+            if (isDark) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeIcon.className = 'fa fa-moon-o text-slate-600';
+                themeText.textContent = '深色模式';
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeIcon.className = 'fa fa-sun-o text-slate-600';
+                themeText.textContent = '浅色模式';
+            }
+        }
+
+        function applyThemeByTime() {
+            const body = document.body;
+            const themeIcon = document.querySelector('#theme-toggle .fa');
+            const themeText = document.getElementById('theme-text');
+            const isDark = shouldUseDarkMode();
+            
+            if (isDark) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeIcon.className = 'fa fa-sun-o text-slate-600';
+                themeText.textContent = '浅色模式';
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeIcon.className = 'fa fa-moon-o text-slate-600';
+                themeText.textContent = '深色模式';
+            }
+        }
+
+        function initTheme() {
+            applyThemeByTime();
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            setInterval(applyThemeByTime, 60 * 60 * 1000);
+        }
+
+        function initSearch() {
+            const searchBtn = document.getElementById('search-btn');
+            const searchInput = document.getElementById('search-input');
+            const searchEngine = document.getElementById('search-engine');
+
+            // 搜索核心逻辑
+            function handleSearch() {
+                const keyword = searchInput.value.trim();
+                if (!keyword) {
+                    alert('请输入搜索内容！');
+                    return;
+                }
+
+                // 根据选择的引擎拼接搜索URL
+                let searchUrl = '';
+                const engine = searchEngine.value;
+                switch (engine) {
+                    case 'baidu':
+                        searchUrl = `https://www.baidu.com/s?wd=${encodeURIComponent(keyword)}`;
+                        break;
+                    case 'google':
+                        searchUrl = `https://www.google.com/search?q=${encodeURIComponent(keyword)}`;
+                        break;
+                    case 'bing': // 必应搜索逻辑
+                        searchUrl = `https://cn.bing.com/search?q=${encodeURIComponent(keyword)}`;
+                        break;
+                    default:
+                        searchUrl = `https://www.baidu.com/s?wd=${encodeURIComponent(keyword)}`;
+                }
+
+                // 打开新标签页搜索
+                window.open(searchUrl, '_blank');
+            }
+
+            // 绑定搜索按钮点击事件
+            searchBtn.addEventListener('click', handleSearch);
+
+            // 绑定回车键搜索
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleSearch();
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            initSearch();
+        });
+    </script>
+</body>
+</html>
+
