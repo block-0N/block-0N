@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,8 @@
             color: #333;
             line-height: 1.6;
             padding: 20px;
-            max-width: 1000px; /* 适度加宽适配新增内容 */
+            max-width: 1000px;
+            /* 适度加宽适配新增内容 */
             margin: 0 auto;
             min-height: 100vh;
             display: flex;
@@ -117,7 +119,7 @@
             margin: 10px 0 20px;
             padding-bottom: 15px;
             border-bottom: 3px solid #2980b9;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
         }
 
         .category-title {
@@ -233,7 +235,7 @@
             .nav-menu {
                 gap: 10px;
             }
-            
+
             .search-container {
                 max-width: 100%;
             }
@@ -276,6 +278,7 @@
         }
     </style>
 </head>
+
 <body>
     <header class="header-nav">
         <div class="nav-logo">温州县域公交</div>
@@ -287,7 +290,7 @@
     </header>
 
     <div class="update-tip">
-        <strong>更新提示：</strong> <a href="20260216-0218notice.html" class="nav-link">春节假期公交班次调整，点此查看。</a>
+        <strong>更新提示：</strong> <a href="notice.html" class="nav-link">施工影响，部分公交班次调整，点此查看。</a>
     </div>
 
     <h1 class="page-title">温州县域公交·龙港-苍南公交</h1>
@@ -300,19 +303,13 @@
     <h2 class="category-title">POV视频合集</h2>
     <ul class="area-list">
         <li class="area-item">
-            <a href="longgangbuspov.html" 
-               class="area-link" 
-               target="_blank" 
-               rel="noopener noreferrer">
+            <a href="longgangbuspov.html" class="area-link" target="_blank" rel="noopener noreferrer">
                 龙港公交POV合集
             </a>
             <p class="area-desc">包含龙港1路、2路、5路等多条公交线路的POV视频</p>
         </li>
         <li class="area-item">
-            <a href="cangnanbuspov.html" 
-               class="area-link" 
-               target="_blank" 
-               rel="noopener noreferrer">
+            <a href="cangnanbuspov.html" class="area-link" target="_blank" rel="noopener noreferrer">
                 苍南公交POV合集
             </a>
             <p class="area-desc">包含苍南101路、106路、107路等多条公交线路的POV视频</p>
@@ -322,19 +319,13 @@
     <h2 class="category-title">路线图合集</h2>
     <ul class="area-list">
         <li class="area-item">
-            <a href="longgangbusroute.html" 
-               class="area-link" 
-               target="_blank" 
-               rel="noopener noreferrer">
+            <a href="longgangbusroute.html" class="area-link" target="_blank" rel="noopener noreferrer">
                 龙港公交路线图合集
             </a>
             <p class="area-desc">包含龙港1路、2路、5路等多条公交线路的路线图</p>
-        </li> 
+        </li>
         <li class="area-item">
-            <a href="cangnanbusroute.html" 
-               class="area-link" 
-               target="_blank" 
-               rel="noopener noreferrer">
+            <a href="cangnanbusroute.html" class="area-link" target="_blank" rel="noopener noreferrer">
                 苍南公交路线图合集
             </a>
             <p class="area-desc">苍南101路、102路、103路等多条公交线路的路线图</p>
@@ -344,32 +335,23 @@
     <h2 class="category-title">线路概况合集</h2>
     <ul class="area-list">
         <li class="area-item">
-            <a href="longgangbusintroduction.html" 
-               class="area-link" 
-               target="_blank" 
-               rel="noopener noreferrer">
+            <a href="longgangbusintroduction.html" class="area-link" target="_blank" rel="noopener noreferrer">
                 龙港公交线路概况合集
             </a>
             <p class="area-desc">包含龙港1路、2路、5路等多条公交线路的概况</p>
-        </li> 
+        </li>
         <li class="area-item">
-            <a href="cangnanbusintroduction.html" 
-               class="area-link" 
-               target="_blank" 
-               rel="noopener noreferrer">
+            <a href="cangnanbusintroduction.html" class="area-link" target="_blank" rel="noopener noreferrer">
                 苍南公交线路概况合集
             </a>
             <p class="area-desc">苍南101路、102路、103路等多条公交线路的概况</p>
         </li>
     </ul>
-  
-  <h2 class="category-title">市内其他线路</h2>
+
+    <h2 class="category-title">市内其他线路</h2>
     <ul class="area-list">
         <li class="area-item">
-            <a href="https://wiki.wzbus.net/wiki/首页" 
-               class="area-link" 
-               target="_blank" 
-               rel="noopener noreferrer">
+            <a href="https://wiki.wzbus.net/wiki/首页" class="area-link" target="_blank" rel="noopener noreferrer">
                 瓯越交通百科入口
             </a>
             <p class="area-desc">温州市内公交线路的概况</p>
@@ -394,7 +376,7 @@
         function searchRoute() {
             const searchInput = document.getElementById('search-input');
             const keyword = searchInput.value.trim().toLowerCase();
-            
+
             if (!keyword) {
                 alert('输入公交线路');
                 return;
@@ -408,7 +390,7 @@
             };
             // 提取线路核心信息并构建目标路径
             let targetRouteName = '';
-            
+
             // 优先匹配特殊线路
             if (specialRoutes[keyword]) {
                 targetRouteName = specialRoutes[keyword];
@@ -444,10 +426,10 @@
                     return match.toUpperCase().replace('路', '路');
                 });
                 const targetUrl = baseUrl + encodeURIComponent(targetRouteName);
-                
+
                 // 打开新窗口跳转
                 window.open(targetUrl, '_blank');
-                
+
                 // 可选：验证链接是否存在（如需后端支持，可添加接口校验）
                 // fetch(targetUrl).catch(() => {
                 //     alert(`未找到"${targetRouteName}"的公交线路页面，已尝试跳转至对应地址`);
@@ -455,17 +437,18 @@
             } else {
                 alert(`未识别到有效的公交线路格式，请输入如"龙港5路"、"苍南LJ08路"、"K001路"等格式`);
             }
-            
+
             // 清空搜索框
             searchInput.value = '';
         }
 
         // 支持回车触发搜索
-        document.getElementById('search-input').addEventListener('keypress', function(e) {
+        document.getElementById('search-input').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 searchRoute();
             }
         });
     </script>
 </body>
+
 </html>

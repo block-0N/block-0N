@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>简约大气导航主页</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <style>
         .fa {
             display: inline-block;
@@ -17,18 +18,50 @@
             line-height: 1;
             width: 1.2em;
         }
-        
-        .fa-calendar-plus-o:before { content: "📅"; }
-        .fa-birthday-cake:before { content: "🎂"; }
-        .fa-plus-circle:before { content: "➕"; }
-        .fa-search:before { content: "🔍"; }
-        .fa-hourglass:before { content: "⌛"; }
-        .fa-calculator:before { content: "🧮"; }
-        .fa-exchange:before { content: "🔄"; }
-        .fa-moon-o:before { content: "🌙"; }
-        .fa-sun-o:before { content: "☀️"; }
-        .fa-times:before { content: "❌"; } 
-        .fa-users:before { content: "📝"; }
+
+        .fa-calendar-plus-o:before {
+            content: "📅";
+        }
+
+        .fa-birthday-cake:before {
+            content: "🎂";
+        }
+
+        .fa-plus-circle:before {
+            content: "➕";
+        }
+
+        .fa-search:before {
+            content: "🔍";
+        }
+
+        .fa-hourglass:before {
+            content: "⌛";
+        }
+
+        .fa-calculator:before {
+            content: "🧮";
+        }
+
+        .fa-exchange:before {
+            content: "🔄";
+        }
+
+        .fa-moon-o:before {
+            content: "🌙";
+        }
+
+        .fa-sun-o:before {
+            content: "☀️";
+        }
+
+        .fa-times:before {
+            content: "❌";
+        }
+
+        .fa-users:before {
+            content: "📝";
+        }
 
         .dark-mode {
             --bg-primary: #1e293b;
@@ -41,7 +74,7 @@
             --primary-color: #3b82f6;
             --accent-color: #a78bfa;
         }
-        
+
         .light-mode {
             --bg-primary: #f5f7fa;
             --bg-secondary: #ffffff;
@@ -53,7 +86,7 @@
             --primary-color: #2563eb;
             --accent-color: #8b5cf6;
         }
-        
+
         .note-item {
             padding: 0.75rem;
             border-radius: 0.5rem;
@@ -72,7 +105,7 @@
             transition: all 0.3s ease;
         }
     </style>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -192,25 +225,31 @@
         }
     </style>
 </head>
+
 <body class="bg-dynamic min-h-screen flex flex-col items-center justify-center p-4 font-inter light-mode">
     <div class="w-full max-w-5xl mx-auto mb-6 flex justify-end gap-3 flex-wrap">
-        <button id="add-custom-date-btn" class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow flex items-center gap-2">
+        <button id="add-custom-date-btn"
+            class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow flex items-center gap-2">
             <i class="fa fa-calendar-plus-o text-primary"></i>
             <span class="text-sm font-medium">自定义日期</span>
         </button>
-        <button id="add-birthday-btn" class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow flex items-center gap-2">
+        <button id="add-birthday-btn"
+            class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow flex items-center gap-2">
             <i class="fa fa-birthday-cake text-pink-500"></i>
             <span class="text-sm font-medium">添加生日</span>
         </button>
-        <button id="add-countdown-btn" class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow flex items-center gap-2">
+        <button id="add-countdown-btn"
+            class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow flex items-center gap-2">
             <i class="fa fa-hourglass text-blue-500"></i>
             <span class="text-sm font-medium">添加倒计时</span>
         </button>
-        <button id="theme-toggle" class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow flex items-center gap-2">
+        <button id="theme-toggle"
+            class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow flex items-center gap-2">
             <i class="fa fa-moon-o text-slate-600"></i>
             <span id="theme-text" class="text-sm font-medium">深色模式</span>
         </button>
-        <button id="version-toggle" class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow flex items-center gap-2">
+        <button id="version-toggle"
+            class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow flex items-center gap-2">
             <i class="fa fa-exchange text-slate-600"></i>
             <a href="浏览器简约版.html">切换至简约版</a>
         </button>
@@ -219,10 +258,11 @@
 
     <div class="w-full max-w-5xl mx-auto flex flex-col items-center">
         <div id="greeting" class="text-secondary text-lg md:text-xl mb-4 text-center"></div>
-        
+
         <div class="mb-6 text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg">
             <div id="digital-clock" class="text-[clamp(3.5rem,10vw,7rem)] font-bold text-dark text-glow mb-3"></div>
-            <div id="date-info" class="text-[clamp(1rem,2vw,1.3rem)] text-secondary flex flex-wrap justify-center gap-x-4 gap-y-2 mb-3">
+            <div id="date-info"
+                class="text-[clamp(1rem,2vw,1.3rem)] text-secondary flex flex-wrap justify-center gap-x-4 gap-y-2 mb-3">
                 <span id="week-day" class="px-2 py-1 bg-primary/10 rounded-full"></span>
                 <span id="gregorian-date" class="px-2 py-1 bg-secondary/10 rounded-full"></span>
                 <span id="lunar-date" class="px-2 py-1 bg-accent/10 text-accent rounded-full"></span>
@@ -232,21 +272,25 @@
         </div>
 
         <div class="w-full max-w-2xl mb-8 relative">
-            <input type="text" id="search-input" placeholder="输入搜索内容" 
+            <input type="text" id="search-input" placeholder="输入搜索内容"
                 class="w-full py-4 px-6 pr-20 rounded-full border border-slate-200 focus:search-focus outline-none transition-all bg-white/90 shadow-md">
-            <select id="search-engine" class="absolute right-16 top-1/2 -translate-y-1/2 bg-transparent border-0 text-secondary focus:outline-none text-sm">
+            <select id="search-engine"
+                class="absolute right-16 top-1/2 -translate-y-1/2 bg-transparent border-0 text-secondary focus:outline-none text-sm">
                 <option value="baidu">百度</option>
                 <option value="google">谷歌</option>
                 <option value="bing">必应</option>
             </select>
-            <button id="search-btn" class="absolute right-3 top-1/2 -translate-y-1/2 text-secondary hover:text-primary transition-colors p-1 rounded-full hover:bg-primary/10">
+            <button id="search-btn"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-secondary hover:text-primary transition-colors p-1 rounded-full hover:bg-primary/10">
                 <i class="fa fa-search text-xl"></i>
             </button>
         </div>
 
         <div class="w-full max-w-2xl mb-4 flex border-b border-slate-200">
-            <button id="tab-converter" class="px-6 py-2 text-primary border-b-2 border-primary font-medium">单位换算</button>
-            <button id="tab-calculator" class="px-6 py-2 text-secondary hover:text-primary transition-colors">计算器</button>
+            <button id="tab-converter"
+                class="px-6 py-2 text-primary border-b-2 border-primary font-medium">单位换算</button>
+            <button id="tab-calculator"
+                class="px-6 py-2 text-secondary hover:text-primary transition-colors">计算器</button>
             <button id="tab-relative" class="px-6 py-2 text-secondary hover:text-primary transition-colors">备忘录</button>
         </div>
 
@@ -264,7 +308,8 @@
                         <option value="area">面积</option>
                     </select>
                     <div class="flex gap-2 mb-2">
-                        <input type="number" id="input-value" placeholder="输入数值" class="flex-1 rounded-lg border border-slate-200 p-2 text-sm">
+                        <input type="number" id="input-value" placeholder="输入数值"
+                            class="flex-1 rounded-lg border border-slate-200 p-2 text-sm">
                         <select id="input-unit" class="rounded-lg border border-slate-200 p-2 text-sm">
                             <option value="meter">米</option>
                             <option value="foot">英尺</option>
@@ -272,16 +317,18 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="md:col-span-2 flex items-center justify-center">
                     <div id="swap-units" class="swap-btn">
                         <i class="fa fa-exchange"></i>
                     </div>
                 </div>
-                
+
                 <div class="md:col-span-5 flex flex-col justify-center">
                     <div class="flex gap-2 mb-2">
-                        <div id="convert-result" class="flex-1 text-lg font-medium text-primary rounded-lg border border-slate-200 p-2 text-sm">请输入数值进行换算</div>
+                        <div id="convert-result"
+                            class="flex-1 text-lg font-medium text-primary rounded-lg border border-slate-200 p-2 text-sm">
+                            请输入数值进行换算</div>
                         <select id="output-unit" class="rounded-lg border border-slate-200 p-2 text-sm">
                             <option value="foot">英尺</option>
                             <option value="inch">英寸</option>
@@ -294,7 +341,8 @@
         </div>
 
         <!-- 计算器面板 -->
-        <div id="calculator-panel" class="w-full max-w-2xl mb-8 bg-white/80 backdrop-blur-sm rounded-xl shadow-md p-5 hidden">
+        <div id="calculator-panel"
+            class="w-full max-w-2xl mb-8 bg-white/80 backdrop-blur-sm rounded-xl shadow-md p-5 hidden">
             <h3 class="font-medium text-dark text-lg mb-4 flex items-center gap-2">
                 <i class="fa fa-calculator text-primary"></i> 计算器
             </h3>
@@ -307,22 +355,22 @@
                 <button class="calc-btn calc-btn-action" data-value="DEL">DEL</button>
                 <button class="calc-btn calc-btn-action" data-value="%">%</button>
                 <button class="calc-btn calc-btn-operator" data-value="/">÷</button>
-                
+
                 <button class="calc-btn calc-btn-number" data-value="7">7</button>
                 <button class="calc-btn calc-btn-number" data-value="8">8</button>
                 <button class="calc-btn calc-btn-number" data-value="9">9</button>
                 <button class="calc-btn calc-btn-operator" data-value="*">×</button>
-                
+
                 <button class="calc-btn calc-btn-number" data-value="4">4</button>
                 <button class="calc-btn calc-btn-number" data-value="5">5</button>
                 <button class="calc-btn calc-btn-number" data-value="6">6</button>
                 <button class="calc-btn calc-btn-operator" data-value="-">-</button>
-                
+
                 <button class="calc-btn calc-btn-number" data-value="1">1</button>
                 <button class="calc-btn calc-btn-number" data-value="2">2</button>
                 <button class="calc-btn calc-btn-number" data-value="3">3</button>
                 <button class="calc-btn calc-btn-operator" data-value="+">+</button>
-                
+
                 <button class="calc-btn calc-btn-number" data-value="00">00</button>
                 <button class="calc-btn calc-btn-number" data-value="0">0</button>
                 <button class="calc-btn calc-btn-number" data-value=".">.</button>
@@ -331,19 +379,25 @@
         </div>
 
         <!-- 备忘录面板 -->
-<div id="relative-panel" class="w-full max-w-2xl mb-8 bg-white/80 backdrop-blur-sm rounded-xl shadow-md p-5 hidden">
-    <h3 class="font-medium text-dark text-lg mb-4 flex items-center gap-2">
-        <i class="fa fa-users text-primary"></i> 备忘录
-    </h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div id="relative-panel"
+            class="w-full max-w-2xl mb-8 bg-white/80 backdrop-blur-sm rounded-xl shadow-md p-5 hidden">
+            <h3 class="font-medium text-dark text-lg mb-4 flex items-center gap-2">
+                <i class="fa fa-users text-primary"></i> 备忘录
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- 备忘录输入 -->
                 <div>
                     <label class="block text-sm font-medium text-secondary mb-2">新建/编辑备忘录</label>
-                    <input type="text" id="note-title" class="w-full rounded-lg border border-slate-200 p-3 mb-4 text-sm" placeholder="输入标题">
-                    <textarea id="note-content" class="w-full rounded-lg border border-slate-200 p-3 mb-4 text-sm min-h-[120px]" placeholder="输入内容"></textarea>
+                    <input type="text" id="note-title"
+                        class="w-full rounded-lg border border-slate-200 p-3 mb-4 text-sm" placeholder="输入标题">
+                    <textarea id="note-content"
+                        class="w-full rounded-lg border border-slate-200 p-3 mb-4 text-sm min-h-[120px]"
+                        placeholder="输入内容"></textarea>
                     <div class="flex gap-3">
-                        <button id="save-note" class="flex-1 bg-primary text-white rounded-lg p-3 text-sm hover:bg-primary/90 transition">保存</button>
-                        <button id="clear-note" class="flex-1 bg-slate-200 text-dark rounded-lg p-3 text-sm hover:bg-slate-300 transition">清空</button>
+                        <button id="save-note"
+                            class="flex-1 bg-primary text-white rounded-lg p-3 text-sm hover:bg-primary/90 transition">保存</button>
+                        <button id="clear-note"
+                            class="flex-1 bg-slate-200 text-dark rounded-lg p-3 text-sm hover:bg-slate-300 transition">清空</button>
                     </div>
                     <input type="hidden" id="current-note-id">
                 </div>
@@ -352,9 +406,11 @@
                 <div>
                     <div class="flex justify-between items-center mb-2">
                         <label class="block text-sm font-medium text-secondary">我的备忘录</label>
-                        <button id="delete-all-notes" class="text-sm text-red-500 hover:text-red-600 transition">清空所有</button>
+                        <button id="delete-all-notes"
+                            class="text-sm text-red-500 hover:text-red-600 transition">清空所有</button>
                     </div>
-                    <div id="notes-list" class="max-h-[280px] overflow-y-auto space-y-3 border border-slate-100 rounded-lg p-3">
+                    <div id="notes-list"
+                        class="max-h-[280px] overflow-y-auto space-y-3 border border-slate-100 rounded-lg p-3">
                         <div class="text-center text-slate-400 text-sm py-8" id="empty-tip">暂无备忘录，点击左侧添加</div>
                     </div>
                 </div>
@@ -362,10 +418,10 @@
         </div>
 
         <div id="shortcut-nav" class="w-full max-w-2xl flex flex-wrap gap-4 justify-start">
-            
+
             <!-- 自定义站点容器 -->
             <div id="custom-sites-container" class="flex flex-wrap gap-4"></div>
-            
+
             <!-- 添加网站按钮 -->
             <button id="add-site-btn" class="nav-card border-2 border-dashed border-slate-200 hover:border-primary">
                 <div class="nav-icon-wrapper bg-slate-100">
@@ -391,128 +447,128 @@
             { id: 10, name: '其他类型', emoji: '🔗' }
         ];
         // 2024-2040年二十四节气数据
-const SOLAR_TERMS = {
-  2026: {
-    "1-5": "小寒", "1-20": "大寒", "2-4": "立春", "2-18": "雨水",
-    "3-5": "惊蛰", "3-20": "春分", "4-5": "清明", "4-20": "谷雨",
-    "5-5": "立夏", "5-21": "小满", "6-5": "芒种", "6-21": "夏至",
-    "7-7": "小暑", "7-23": "大暑", "8-7": "立秋", "8-23": "处暑",
-    "9-7": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
-    "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-21": "冬至"
-  },
-  2027: {
-    "1-5": "小寒", "1-20": "大寒", "2-4": "立春", "2-19": "雨水",
-    "3-6": "惊蛰", "3-21": "春分", "4-5": "清明", "4-20": "谷雨",
-    "5-6": "立夏", "5-21": "小满", "6-6": "芒种", "6-21": "夏至",
-    "7-7": "小暑", "7-23": "大暑", "8-8": "立秋", "8-23": "处暑",
-    "9-8": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
-    "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-22": "冬至"
-  },
-  2028: {
-    "1-6": "小寒", "1-20": "大寒", "2-4": "立春", "2-18": "雨水",
-    "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-19": "谷雨",
-    "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
-    "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-23": "处暑",
-    "9-7": "白露", "9-22": "秋分", "10-8": "寒露", "10-23": "霜降",
-    "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-21": "冬至"
-  },
-  2029: {
-    "1-5": "小寒", "1-20": "大寒", "2-3": "立春", "2-18": "雨水",
-    "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-20": "谷雨",
-    "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
-    "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-23": "处暑",
-    "9-7": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
-    "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-22": "冬至"
-  },
-  2030: {
-    "1-6": "小寒", "1-20": "大寒", "2-4": "立春", "2-19": "雨水",
-    "3-6": "惊蛰", "3-21": "春分", "4-5": "清明", "4-20": "谷雨",
-    "5-6": "立夏", "5-21": "小满", "6-6": "芒种", "6-21": "夏至",
-    "7-7": "小暑", "7-23": "大暑", "8-8": "立秋", "8-24": "处暑",
-    "9-8": "白露", "9-23": "秋分", "10-9": "寒露", "10-24": "霜降",
-    "11-8": "立冬", "11-23": "小雪", "12-8": "大雪", "12-22": "冬至"
-  },
-  2031: {
-    "1-5": "小寒", "1-20": "大寒", "2-4": "立春", "2-18": "雨水",
-    "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-20": "谷雨",
-    "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
-    "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-23": "处暑",
-    "9-7": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
-    "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-22": "冬至"
-  },
-  2032: {
-    "1-5": "小寒", "1-19": "大寒", "2-3": "立春", "2-18": "雨水",
-    "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-19": "谷雨",
-    "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
-    "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-22": "处暑",
-    "9-7": "白露", "9-22": "秋分", "10-7": "寒露", "10-23": "霜降",
-    "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-21": "冬至"
-  },
-  2033: {
-    "1-5": "小寒", "1-20": "大寒", "2-4": "立春", "2-19": "雨水",
-    "3-6": "惊蛰", "3-21": "春分", "4-5": "清明", "4-20": "谷雨",
-    "5-6": "立夏", "5-21": "小满", "6-6": "芒种", "6-21": "夏至",
-    "7-8": "小暑", "7-23": "大暑", "8-8": "立秋", "8-23": "处暑",
-    "9-8": "白露", "9-23": "秋分", "10-8": "寒露", "10-24": "霜降",
-    "11-8": "立冬", "11-23": "小雪", "12-8": "大雪", "12-22": "冬至"
-  },
-  2034: {
-    "1-6": "小寒", "1-20": "大寒", "2-4": "立春", "2-19": "雨水",
-    "3-6": "惊蛰", "3-21": "春分", "4-5": "清明", "4-20": "谷雨",
-    "5-6": "立夏", "5-21": "小满", "6-6": "芒种", "6-22": "夏至",
-    "7-8": "小暑", "7-23": "大暑", "8-8": "立秋", "8-24": "处暑",
-    "9-8": "白露", "9-24": "秋分", "10-9": "寒露", "10-24": "霜降",
-    "11-8": "立冬", "11-23": "小雪", "12-8": "大雪", "12-22": "冬至"
-  },
-  2035: {
-    "1-5": "小寒", "1-20": "大寒", "2-3": "立春", "2-18": "雨水",
-    "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-20": "谷雨",
-    "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
-    "7-7": "小暑", "7-23": "大暑", "8-8": "立秋", "8-23": "处暑",
-    "9-8": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
-    "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-22": "冬至"
-  },
-  2036: {
-    "1-5": "小寒", "1-19": "大寒", "2-3": "立春", "2-18": "雨水",
-    "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-19": "谷雨",
-    "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
-    "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-22": "处暑",
-    "9-7": "白露", "9-22": "秋分", "10-7": "寒露", "10-22": "霜降",
-    "11-6": "立冬", "11-21": "小雪", "12-6": "大雪", "12-21": "冬至"
-  },
-  2037: {
-    "1-5": "小寒", "1-20": "大寒", "2-4": "立春", "2-19": "雨水",
-    "3-6": "惊蛰", "3-21": "春分", "4-5": "清明", "4-20": "谷雨",
-    "5-6": "立夏", "5-21": "小满", "6-6": "芒种", "6-21": "夏至",
-    "7-7": "小暑", "7-23": "大暑", "8-8": "立秋", "8-23": "处暑",
-    "9-8": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
-    "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-22": "冬至"
-  },
-  2038: {
-    "1-6": "小寒", "1-20": "大寒", "2-4": "立春", "2-19": "雨水",
-    "3-6": "惊蛰", "3-21": "春分", "4-5": "清明", "4-20": "谷雨",
-    "5-6": "立夏", "5-21": "小满", "6-6": "芒种", "6-22": "夏至",
-    "7-8": "小暑", "7-23": "大暑", "8-8": "立秋", "8-24": "处暑",
-    "9-8": "白露", "9-23": "秋分", "10-9": "寒露", "10-24": "霜降",
-    "11-8": "立冬", "11-23": "小雪", "12-8": "大雪", "12-22": "冬至"
-  },
-  2039: {
-    "1-5": "小寒", "1-20": "大寒", "2-3": "立春", "2-18": "雨水",
-    "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-20": "谷雨",
-    "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
-    "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-23": "处暑",
-    "9-7": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
-    "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-22": "冬至"
-  },
-  2040: {
-    "1-5": "小寒", "1-19": "大寒", "2-3": "立春", "2-18": "雨水",
-    "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-19": "谷雨",
-    "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
-    "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-22": "处暑",
-    "9-7": "白露", "9-22": "秋分", "10-7": "寒露", "10-22": "霜降",
-    "11-6": "立冬", "11-21": "小雪", "12-6": "大雪", "12-21": "冬至"
-  }
-};
+        const SOLAR_TERMS = {
+            2026: {
+                "1-5": "小寒", "1-20": "大寒", "2-4": "立春", "2-18": "雨水",
+                "3-5": "惊蛰", "3-20": "春分", "4-5": "清明", "4-20": "谷雨",
+                "5-5": "立夏", "5-21": "小满", "6-5": "芒种", "6-21": "夏至",
+                "7-7": "小暑", "7-23": "大暑", "8-7": "立秋", "8-23": "处暑",
+                "9-7": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
+                "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-21": "冬至"
+            },
+            2027: {
+                "1-5": "小寒", "1-20": "大寒", "2-4": "立春", "2-19": "雨水",
+                "3-6": "惊蛰", "3-21": "春分", "4-5": "清明", "4-20": "谷雨",
+                "5-6": "立夏", "5-21": "小满", "6-6": "芒种", "6-21": "夏至",
+                "7-7": "小暑", "7-23": "大暑", "8-8": "立秋", "8-23": "处暑",
+                "9-8": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
+                "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-22": "冬至"
+            },
+            2028: {
+                "1-6": "小寒", "1-20": "大寒", "2-4": "立春", "2-18": "雨水",
+                "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-19": "谷雨",
+                "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
+                "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-23": "处暑",
+                "9-7": "白露", "9-22": "秋分", "10-8": "寒露", "10-23": "霜降",
+                "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-21": "冬至"
+            },
+            2029: {
+                "1-5": "小寒", "1-20": "大寒", "2-3": "立春", "2-18": "雨水",
+                "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-20": "谷雨",
+                "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
+                "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-23": "处暑",
+                "9-7": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
+                "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-22": "冬至"
+            },
+            2030: {
+                "1-6": "小寒", "1-20": "大寒", "2-4": "立春", "2-19": "雨水",
+                "3-6": "惊蛰", "3-21": "春分", "4-5": "清明", "4-20": "谷雨",
+                "5-6": "立夏", "5-21": "小满", "6-6": "芒种", "6-21": "夏至",
+                "7-7": "小暑", "7-23": "大暑", "8-8": "立秋", "8-24": "处暑",
+                "9-8": "白露", "9-23": "秋分", "10-9": "寒露", "10-24": "霜降",
+                "11-8": "立冬", "11-23": "小雪", "12-8": "大雪", "12-22": "冬至"
+            },
+            2031: {
+                "1-5": "小寒", "1-20": "大寒", "2-4": "立春", "2-18": "雨水",
+                "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-20": "谷雨",
+                "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
+                "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-23": "处暑",
+                "9-7": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
+                "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-22": "冬至"
+            },
+            2032: {
+                "1-5": "小寒", "1-19": "大寒", "2-3": "立春", "2-18": "雨水",
+                "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-19": "谷雨",
+                "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
+                "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-22": "处暑",
+                "9-7": "白露", "9-22": "秋分", "10-7": "寒露", "10-23": "霜降",
+                "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-21": "冬至"
+            },
+            2033: {
+                "1-5": "小寒", "1-20": "大寒", "2-4": "立春", "2-19": "雨水",
+                "3-6": "惊蛰", "3-21": "春分", "4-5": "清明", "4-20": "谷雨",
+                "5-6": "立夏", "5-21": "小满", "6-6": "芒种", "6-21": "夏至",
+                "7-8": "小暑", "7-23": "大暑", "8-8": "立秋", "8-23": "处暑",
+                "9-8": "白露", "9-23": "秋分", "10-8": "寒露", "10-24": "霜降",
+                "11-8": "立冬", "11-23": "小雪", "12-8": "大雪", "12-22": "冬至"
+            },
+            2034: {
+                "1-6": "小寒", "1-20": "大寒", "2-4": "立春", "2-19": "雨水",
+                "3-6": "惊蛰", "3-21": "春分", "4-5": "清明", "4-20": "谷雨",
+                "5-6": "立夏", "5-21": "小满", "6-6": "芒种", "6-22": "夏至",
+                "7-8": "小暑", "7-23": "大暑", "8-8": "立秋", "8-24": "处暑",
+                "9-8": "白露", "9-24": "秋分", "10-9": "寒露", "10-24": "霜降",
+                "11-8": "立冬", "11-23": "小雪", "12-8": "大雪", "12-22": "冬至"
+            },
+            2035: {
+                "1-5": "小寒", "1-20": "大寒", "2-3": "立春", "2-18": "雨水",
+                "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-20": "谷雨",
+                "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
+                "7-7": "小暑", "7-23": "大暑", "8-8": "立秋", "8-23": "处暑",
+                "9-8": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
+                "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-22": "冬至"
+            },
+            2036: {
+                "1-5": "小寒", "1-19": "大寒", "2-3": "立春", "2-18": "雨水",
+                "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-19": "谷雨",
+                "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
+                "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-22": "处暑",
+                "9-7": "白露", "9-22": "秋分", "10-7": "寒露", "10-22": "霜降",
+                "11-6": "立冬", "11-21": "小雪", "12-6": "大雪", "12-21": "冬至"
+            },
+            2037: {
+                "1-5": "小寒", "1-20": "大寒", "2-4": "立春", "2-19": "雨水",
+                "3-6": "惊蛰", "3-21": "春分", "4-5": "清明", "4-20": "谷雨",
+                "5-6": "立夏", "5-21": "小满", "6-6": "芒种", "6-21": "夏至",
+                "7-7": "小暑", "7-23": "大暑", "8-8": "立秋", "8-23": "处暑",
+                "9-8": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
+                "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-22": "冬至"
+            },
+            2038: {
+                "1-6": "小寒", "1-20": "大寒", "2-4": "立春", "2-19": "雨水",
+                "3-6": "惊蛰", "3-21": "春分", "4-5": "清明", "4-20": "谷雨",
+                "5-6": "立夏", "5-21": "小满", "6-6": "芒种", "6-22": "夏至",
+                "7-8": "小暑", "7-23": "大暑", "8-8": "立秋", "8-24": "处暑",
+                "9-8": "白露", "9-23": "秋分", "10-9": "寒露", "10-24": "霜降",
+                "11-8": "立冬", "11-23": "小雪", "12-8": "大雪", "12-22": "冬至"
+            },
+            2039: {
+                "1-5": "小寒", "1-20": "大寒", "2-3": "立春", "2-18": "雨水",
+                "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-20": "谷雨",
+                "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
+                "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-23": "处暑",
+                "9-7": "白露", "9-23": "秋分", "10-8": "寒露", "10-23": "霜降",
+                "11-7": "立冬", "11-22": "小雪", "12-7": "大雪", "12-22": "冬至"
+            },
+            2040: {
+                "1-5": "小寒", "1-19": "大寒", "2-3": "立春", "2-18": "雨水",
+                "3-5": "惊蛰", "3-20": "春分", "4-4": "清明", "4-19": "谷雨",
+                "5-5": "立夏", "5-20": "小满", "6-5": "芒种", "6-21": "夏至",
+                "7-7": "小暑", "7-22": "大暑", "8-7": "立秋", "8-22": "处暑",
+                "9-7": "白露", "9-22": "秋分", "10-7": "寒露", "10-22": "霜降",
+                "11-6": "立冬", "11-21": "小雪", "12-6": "大雪", "12-21": "冬至"
+            }
+        };
         // 农历转换核心类
         class LunarConverter {
             static LUNAR_NEW_YEAR = {
@@ -533,12 +589,12 @@ const SOLAR_TERMS = {
                 1980: [2, 16], 1979: [1, 28], 1978: [2, 7], 1977: [2, 18], 1976: [1, 31]
             };
 
-            static LUNAR_MONTH_DAYS = [30,29,30,29,30,29,30,30,29,30,29,30];
-            static ZODIACS = ['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪'];
-            static LUNAR_MONTHS = ['正月','二月','三月','四月','五月','六月','七月','八月','九月','十月','冬月','腊月'];
-            static LUNAR_DAYS = ['初一','初二','初三','初四','初五','初六','初七','初八','初九','初十',
-                               '十一','十二','十三','十四','十五','十六','十七','十八','十九','二十',
-                               '廿一','廿二','廿三','廿四','廿五','廿六','廿七','廿八','廿九','三十'];
+            static LUNAR_MONTH_DAYS = [30, 29, 30, 29, 30, 29, 30, 30, 29, 30, 29, 30];
+            static ZODIACS = ['鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊', '猴', '鸡', '狗', '猪'];
+            static LUNAR_MONTHS = ['正月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '冬月', '腊月'];
+            static LUNAR_DAYS = ['初一', '初二', '初三', '初四', '初五', '初六', '初七', '初八', '初九', '初十',
+                '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '二十',
+                '廿一', '廿二', '廿三', '廿四', '廿五', '廿六', '廿七', '廿八', '廿九', '三十'];
 
             static getLunarDate(solarDate) {
                 const year = solarDate.getFullYear();
@@ -557,7 +613,7 @@ const SOLAR_TERMS = {
                     lunarYear -= 1;
                     const lastNy = this.LUNAR_NEW_YEAR[lunarYear] || [2, 1];
                     const daysPassed = this.getDaysBetween(
-                        new Date(lunarYear, lastNy[0]-1, lastNy[1]),
+                        new Date(lunarYear, lastNy[0] - 1, lastNy[1]),
                         solarDate
                     );
                     const lunarDate = this.calcLunarDayFromDays(daysPassed);
@@ -565,7 +621,7 @@ const SOLAR_TERMS = {
                     lunarDay = lunarDate.day;
                 } else {
                     const daysPassed = this.getDaysBetween(
-                        new Date(year, nyMonth-1, nyDay),
+                        new Date(year, nyMonth - 1, nyDay),
                         solarDate
                     );
                     const lunarDate = this.calcLunarDayFromDays(daysPassed);
@@ -574,7 +630,7 @@ const SOLAR_TERMS = {
                 }
 
                 const zodiac = this.ZODIACS[(lunarYear - 1900) % 12];
-                
+
                 return {
                     year: lunarYear,
                     month: this.LUNAR_MONTHS[lunarMonth - 1],
@@ -588,17 +644,17 @@ const SOLAR_TERMS = {
 
             static getSolarFromLunar(targetYear, lunarMonth, lunarDay) {
                 const ny = this.LUNAR_NEW_YEAR[targetYear] || [2, 1];
-                const newYear = new Date(targetYear, ny[0]-1, ny[1]);
-                
+                const newYear = new Date(targetYear, ny[0] - 1, ny[1]);
+
                 let totalDays = 0;
                 for (let i = 0; i < lunarMonth - 1; i++) {
                     totalDays += this.LUNAR_MONTH_DAYS[i];
                 }
                 totalDays += lunarDay - 1;
-                
+
                 const solarDate = new Date(newYear);
                 solarDate.setDate(solarDate.getDate() + totalDays);
-                
+
                 return {
                     year: solarDate.getFullYear(),
                     month: solarDate.getMonth() + 1,
@@ -615,7 +671,7 @@ const SOLAR_TERMS = {
             static calcLunarDayFromDays(days) {
                 let month = 1;
                 let day = days + 1;
-                
+
                 for (let i = 0; i < this.LUNAR_MONTH_DAYS.length; i++) {
                     const monthDays = this.LUNAR_MONTH_DAYS[i];
                     if (day > monthDays) {
@@ -645,20 +701,20 @@ const SOLAR_TERMS = {
         function checkBirthdayReminder(today) {
             const birthdays = getBirthdays();
             if (birthdays.length === 0) return null;
-            
+
             const todaySolar = { month: today.getMonth() + 1, day: today.getDate() };
             const todayLunar = LunarConverter.getLunarDate(today);
-            
+
             for (const birthday of birthdays) {
                 if (birthday.type === 'solar' && birthday.month === todaySolar.month && birthday.day === todaySolar.day) {
                     return `${birthday.name}的公历生日 🎂`;
                 }
-                
+
                 if (birthday.type === 'lunar' && birthday.lunarMonth === todayLunar.monthNum && birthday.lunarDay === todayLunar.dayNum) {
                     return `${birthday.name}的农历生日 🎂`;
                 }
             }
-            
+
             return null;
         }
 
@@ -666,20 +722,20 @@ const SOLAR_TERMS = {
             document.getElementById('add-birthday-btn').addEventListener('click', () => {
                 const name = prompt('请输入寿星姓名：');
                 if (!name) return;
-                
+
                 const type = prompt('请选择生日类型（输入 1 表示公历，2 表示农历）：');
                 if (!['1', '2'].includes(type)) {
                     alert('请输入 1 或 2 选择生日类型！');
                     return;
                 }
                 const birthdayType = type === '1' ? 'solar' : 'lunar';
-                
+
                 if (birthdayType === 'solar') {
                     const month = prompt('请输入公历月份（1-12）：');
                     if (!month || month < 1 || month > 12) { alert('月份输入错误！'); return; }
                     const day = prompt('请输入公历日期（1-31）：');
                     if (!day || day < 1 || day > 31) { alert('日期输入错误！'); return; }
-                    
+
                     saveBirthday({
                         name, type: 'solar', month: parseInt(month), day: parseInt(day),
                         createTime: new Date().toISOString()
@@ -690,12 +746,12 @@ const SOLAR_TERMS = {
                     if (!lunarMonth || lunarMonth < 1 || lunarMonth > 12) { alert('农历月份输入错误！'); return; }
                     const lunarDay = prompt('请输入农历日期（1-30）：');
                     if (!lunarDay || lunarDay < 1 || lunarDay > 30) { alert('农历日期输入错误！'); return; }
-                    
+
                     saveBirthday({
                         name, type: 'lunar', lunarMonth: parseInt(lunarMonth), lunarDay: parseInt(lunarDay),
                         createTime: new Date().toISOString()
                     });
-                    alert(`${name}的农历生日（${LunarConverter.LUNAR_MONTHS[parseInt(lunarMonth)-1]}${LunarConverter.LUNAR_DAYS[parseInt(lunarDay)-1]}）已添加，每年自动提醒！`);
+                    alert(`${name}的农历生日（${LunarConverter.LUNAR_MONTHS[parseInt(lunarMonth) - 1]}${LunarConverter.LUNAR_DAYS[parseInt(lunarDay) - 1]}）已添加，每年自动提醒！`);
                 }
             });
         }
@@ -705,30 +761,30 @@ const SOLAR_TERMS = {
             document.getElementById('add-custom-date-btn').addEventListener('click', () => {
                 const content = prompt('请输入自定义日期的内容（如：纪念日、重要事件）：');
                 if (!content) return;
-                
+
                 const dateStr = prompt('请输入日期（格式：YYYY-MM-DD，如：2025-05-20）：');
                 if (!dateStr) return;
-                
+
                 const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
                 if (!dateRegex.test(dateStr)) {
                     alert('日期格式错误！请输入如 2025-05-20 这样的格式');
                     return;
                 }
-                
+
                 const date = new Date(dateStr);
                 if (isNaN(date.getTime())) {
                     alert('日期无效！请检查输入的日期是否正确');
                     return;
                 }
-                
+
                 const year = date.getFullYear();
                 const month = date.getMonth() + 1;
                 const day = date.getDate();
                 const dateKey = `${year}-${month}-${day}`;
-                
+
                 saveCustomDate(dateKey, content);
                 alert(`已添加自定义日期：${dateStr} - ${content}`);
-                
+
                 // 立即更新节日显示
                 const now = new Date();
                 const lunar = LunarConverter.getLunarDate(now);
@@ -738,12 +794,12 @@ const SOLAR_TERMS = {
 
         // 节日/自定义日期
         const FESTIVALS = {
-            "1-1": "元旦", "2-14": "情人节", "3-8": "妇女节", "3-3": "全国爱耳日","3-5": "学雷锋纪念日",  
-            "3-12": "植树节", "3-15": "消费者权益日","3-22": "世界水日",  "4-1": "愚人节","4-7": "世界卫生日",           
-            "4-22": "世界地球日", "4-23": "世界读书日", "5-1": "劳动节","5-4": "青年节","5-12": "国际护士节", 
-              "6-1": "儿童节", "7-1": "建党节", "8-1": "建军节","9-3": "中国人民抗日战争胜利纪念日", 
+            "1-1": "元旦", "2-14": "情人节", "3-8": "妇女节", "3-3": "全国爱耳日", "3-5": "学雷锋纪念日",
+            "3-12": "植树节", "3-15": "消费者权益日", "3-22": "世界水日", "4-1": "愚人节", "4-7": "世界卫生日",
+            "4-22": "世界地球日", "4-23": "世界读书日", "5-1": "劳动节", "5-4": "青年节", "5-12": "国际护士节",
+            "6-1": "儿童节", "7-1": "建党节", "8-1": "建军节", "9-3": "中国人民抗日战争胜利纪念日",
             "9-10": "教师节", "10-1": "国庆节", "12-13": "南京大屠杀死难者国家公祭日", "12-25": "圣诞节",
-            "lunar-1-1": "春节", "lunar-1-15": "元宵节", "lunar-5-5": "端午节","lunar-7-7": "七夕节",
+            "lunar-1-1": "春节", "lunar-1-15": "元宵节", "lunar-5-5": "端午节", "lunar-7-7": "七夕节",
             "lunar-7-15": "中元节", "lunar-8-15": "中秋节", "lunar-9-9": "重阳节", "lunar-12-8": "腊八节"
         };
 
@@ -762,48 +818,48 @@ const SOLAR_TERMS = {
             const year = solarDate.getFullYear();
             const month = solarDate.getMonth() + 1;
             const day = solarDate.getDate();
-            
+
             const todayEvents = [];
 
             const birthdayReminder = checkBirthdayReminder(solarDate);
             if (birthdayReminder) {
-            todayEvents.push(birthdayReminder);
-        }
-            
+                todayEvents.push(birthdayReminder);
+            }
+
             const termKey = `${month}-${day}`;
             if (SOLAR_TERMS[year] && SOLAR_TERMS[year][termKey]) {
-            todayEvents.push(SOLAR_TERMS[year][termKey] + " 🎋");
+                todayEvents.push(SOLAR_TERMS[year][termKey] + " 🎋");
+            }
+
+            const solarKey = `${month}-${day}`;
+            if (FESTIVALS[solarKey]) {
+                todayEvents.push(FESTIVALS[solarKey]);
+            }
+
+            // 4. 添加农历节日
+            const lunarKey = `lunar-${lunarDate.monthNum}-${lunarDate.dayNum}`;
+            if (FESTIVALS[lunarKey]) {
+                todayEvents.push(FESTIVALS[lunarKey] + " 🌕");
+            }
+
+            // 5. 添加自定义日期
+            const customKey = `${year}-${month}-${day}`;
+            const customDates = getCustomDates();
+            if (customDates[customKey]) {
+                todayEvents.push(customDates[customKey]);
+            }
+
+            // 6. 无任何事件时显示默认文本
+            if (todayEvents.length === 0) {
+                todayEvents.push("普通的一天");
+            }
+
+            // 设置样式（有生日提醒则显示提醒样式，否则显示节日样式）
+            document.getElementById('festival-info').className = birthdayReminder ? 'reminder-tag' : 'festival-tag';
+
+            // 拼接所有事件（用 / 分隔，实现多节日同时显示）
+            return todayEvents.join(' / ');
         }
-
-  const solarKey = `${month}-${day}`;
-  if (FESTIVALS[solarKey]) {
-    todayEvents.push(FESTIVALS[solarKey]);
-  }
-
-  // 4. 添加农历节日
-  const lunarKey = `lunar-${lunarDate.monthNum}-${lunarDate.dayNum}`;
-  if (FESTIVALS[lunarKey]) {
-    todayEvents.push(FESTIVALS[lunarKey] + " 🌕");
-  }
-
-  // 5. 添加自定义日期
-  const customKey = `${year}-${month}-${day}`;
-  const customDates = getCustomDates();
-  if (customDates[customKey]) {
-    todayEvents.push(customDates[customKey]);
-  }
-
-  // 6. 无任何事件时显示默认文本
-  if (todayEvents.length === 0) {
-    todayEvents.push("普通的一天");
-  }
-
-  // 设置样式（有生日提醒则显示提醒样式，否则显示节日样式）
-  document.getElementById('festival-info').className = birthdayReminder ? 'reminder-tag' : 'festival-tag';
-  
-  // 拼接所有事件（用 / 分隔，实现多节日同时显示）
-  return todayEvents.join(' / ');
-}
 
         // 倒计时功能
         function getCountdowns() {
@@ -822,13 +878,13 @@ const SOLAR_TERMS = {
             const now = new Date();
             const target = new Date(targetDate);
             const diffTime = target - now;
-            
+
             if (diffTime <= 0) return "已过期";
-            
+
             const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
-            
+
             if (days > 0) return `${days}天${hours}小时${minutes}分钟`;
             else if (hours > 0) return `${hours}小时${minutes}分钟`;
             else return `${minutes}分钟`;
@@ -837,16 +893,16 @@ const SOLAR_TERMS = {
         function updateCountdownDisplay() {
             const countdowns = getCountdowns();
             const displayEl = document.getElementById('countdown-display');
-            
+
             if (countdowns.length === 0) {
                 displayEl.classList.add('hidden');
                 return;
             }
-            
+
             const now = new Date();
             let nearestCountdown = null;
             let minDiff = Infinity;
-            
+
             countdowns.forEach(countdown => {
                 const target = new Date(countdown.targetDate);
                 const diff = target - now;
@@ -855,7 +911,7 @@ const SOLAR_TERMS = {
                     nearestCountdown = countdown;
                 }
             });
-            
+
             if (nearestCountdown) {
                 const timeLeft = calculateCountdown(nearestCountdown.targetDate);
                 displayEl.textContent = `${nearestCountdown.name}：还有 ${timeLeft}`;
@@ -869,29 +925,29 @@ const SOLAR_TERMS = {
             document.getElementById('add-countdown-btn').addEventListener('click', () => {
                 const name = prompt('请输入倒计时名称（如：春节、考试、旅行）：');
                 if (!name) return;
-                
+
                 const dateStr = prompt('请输入目标日期（格式：YYYY-MM-DD，如：2025-01-29）：');
                 if (!dateStr) return;
-                
+
                 const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
                 if (!dateRegex.test(dateStr)) {
                     alert('日期格式错误！请输入如 2025-01-29 这样的格式');
                     return;
                 }
-                
+
                 const targetDate = new Date(dateStr);
                 if (isNaN(targetDate.getTime())) {
                     alert('日期无效！请检查输入的日期是否正确');
                     return;
                 }
-                
+
                 const now = new Date();
                 if (targetDate < now && !confirm('你输入的日期已过期，是否仍要添加？')) return;
-                
+
                 saveCountdown({
                     name, targetDate: targetDate.toISOString().split('T')[0], type: 'custom'
                 });
-                
+
                 alert(`${name}（${dateStr}）倒计时已添加！`);
             });
         }
@@ -904,7 +960,7 @@ const SOLAR_TERMS = {
             const outputUnit = document.getElementById('output-unit');
             const convertResult = document.getElementById('convert-result');
             const swapBtn = document.getElementById('swap-units');
-            
+
             const unitConfigs = {
                 length: {
                     units: [
@@ -914,21 +970,21 @@ const SOLAR_TERMS = {
                     ],
                     convert: (value, fromUnit, toUnit) => {
                         let meters;
-                        switch(fromUnit) {
+                        switch (fromUnit) {
                             case 'meter': meters = value; break;
                             case 'foot': meters = value * 0.3048; break;
                             case 'inch': meters = value * 0.0254; break;
                             case 'kilometer': meters = value * 1000; break;
                             case 'mile': meters = value * 1609.34; break;
-                            case 'chi': meters = value * 1/3; break;
-                            case 'cun': meters = value * 1/30; break;
+                            case 'chi': meters = value * 1 / 3; break;
+                            case 'cun': meters = value * 1 / 30; break;
                             case 'li': meters = value * 500; break;
-                            case 'zhang': meters = value * 10/3; break;
+                            case 'zhang': meters = value * 10 / 3; break;
                             default: meters = value;
                         }
-                        
+
                         let result;
-                        switch(toUnit) {
+                        switch (toUnit) {
                             case 'meter': result = meters; break;
                             case 'foot': result = meters / 0.3048; break;
                             case 'inch': result = meters / 0.0254; break;
@@ -937,10 +993,10 @@ const SOLAR_TERMS = {
                             case 'chi': result = meters * 3; break;
                             case 'cun': result = meters * 30; break;
                             case 'li': result = meters / 500; break;
-                            case 'zhang': result = meters * 3/10; break;
+                            case 'zhang': result = meters * 3 / 10; break;
                             default: result = meters;
                         }
-                        
+
                         return result;
                     }
                 },
@@ -951,7 +1007,7 @@ const SOLAR_TERMS = {
                     ],
                     convert: (value, fromUnit, toUnit) => {
                         let kg;
-                        switch(fromUnit) {
+                        switch (fromUnit) {
                             case 'kg': kg = value; break;
                             case 'g': kg = value / 1000; break;
                             case 'lb': kg = value * 0.453592; break;
@@ -959,9 +1015,9 @@ const SOLAR_TERMS = {
                             case 'liang': kg = value * 0.05; break;
                             default: kg = value;
                         }
-                        
+
                         let result;
-                        switch(toUnit) {
+                        switch (toUnit) {
                             case 'kg': result = kg; break;
                             case 'g': result = kg * 1000; break;
                             case 'lb': result = kg / 0.453592; break;
@@ -969,7 +1025,7 @@ const SOLAR_TERMS = {
                             case 'liang': result = kg * 20; break;
                             default: result = kg;
                         }
-                        
+
                         return result;
                     }
                 },
@@ -979,21 +1035,21 @@ const SOLAR_TERMS = {
                     ],
                     convert: (value, fromUnit, toUnit) => {
                         let c;
-                        switch(fromUnit) {
+                        switch (fromUnit) {
                             case 'c': c = value; break;
-                            case 'f': c = (value - 32) * 5/9; break;
+                            case 'f': c = (value - 32) * 5 / 9; break;
                             case 'k': c = value - 273.15; break;
                             default: c = value;
                         }
-                        
+
                         let result;
-                        switch(toUnit) {
+                        switch (toUnit) {
                             case 'c': result = c; break;
-                            case 'f': result = c * 9/5 + 32; break;
+                            case 'f': result = c * 9 / 5 + 32; break;
                             case 'k': result = c + 273.15; break;
                             default: result = c;
                         }
-                        
+
                         return result;
                     }
                 },
@@ -1004,7 +1060,7 @@ const SOLAR_TERMS = {
                     ],
                     convert: (value, fromUnit, toUnit) => {
                         let seconds;
-                        switch(fromUnit) {
+                        switch (fromUnit) {
                             case 'second': seconds = value; break;
                             case 'minute': seconds = value * 60; break;
                             case 'hour': seconds = value * 3600; break;
@@ -1012,9 +1068,9 @@ const SOLAR_TERMS = {
                             case 'week': seconds = value * 604800; break;
                             default: seconds = value;
                         }
-                        
+
                         let result;
-                        switch(toUnit) {
+                        switch (toUnit) {
                             case 'second': result = seconds; break;
                             case 'minute': result = seconds / 60; break;
                             case 'hour': result = seconds / 3600; break;
@@ -1022,7 +1078,7 @@ const SOLAR_TERMS = {
                             case 'week': result = seconds / 604800; break;
                             default: result = seconds;
                         }
-                        
+
                         return result;
                     }
                 },
@@ -1034,7 +1090,7 @@ const SOLAR_TERMS = {
                     ],
                     convert: (value, fromUnit, toUnit) => {
                         let sqm;
-                        switch(fromUnit) {
+                        switch (fromUnit) {
                             case 'sqm': sqm = value; break;
                             case 'sqkm': sqm = value * 1000000; break;
                             case 'sqft': sqm = value * 0.092903; break;
@@ -1042,9 +1098,9 @@ const SOLAR_TERMS = {
                             case 'mu': sqm = value * 666.667; break;
                             default: sqm = value;
                         }
-                        
+
                         let result;
-                        switch(toUnit) {
+                        switch (toUnit) {
                             case 'sqm': result = sqm; break;
                             case 'sqkm': result = sqm / 1000000; break;
                             case 'sqft': result = sqm / 0.092903; break;
@@ -1052,64 +1108,64 @@ const SOLAR_TERMS = {
                             case 'mu': result = sqm / 666.667; break;
                             default: result = sqm;
                         }
-                        
+
                         return result;
                     }
                 }
             };
-            
+
             // 更新单位下拉框
             function updateUnitDropdowns(type) {
                 const config = unitConfigs[type];
-                const inputUnitHtml = config.units.map(unit => 
+                const inputUnitHtml = config.units.map(unit =>
                     `<option value="${unit.value}">${unit.label}</option>`
                 ).join('');
-                const outputUnitHtml = config.units.map(unit => 
+                const outputUnitHtml = config.units.map(unit =>
                     `<option value="${unit.value}">${unit.label}</option>`
                 ).join('');
-                
+
                 inputUnit.innerHTML = inputUnitHtml;
                 outputUnit.innerHTML = outputUnitHtml;
-                
+
                 // 默认选中第一个和第二个
                 if (config.units.length > 1) {
                     inputUnit.selectedIndex = 0;
                     outputUnit.selectedIndex = 1;
                 }
             }
-            
+
             // 初始化长度单位
             updateUnitDropdowns('length');
-            
+
             // 类型切换事件
             convertType.addEventListener('change', () => {
                 updateUnitDropdowns(convertType.value);
                 convert();
             });
-            
+
             // 换算计算
             function convert() {
                 const type = convertType.value;
                 const value = parseFloat(inputValue.value);
-                
+
                 if (isNaN(value)) {
                     convertResult.textContent = "请输入数值进行换算";
                     return;
                 }
-                
+
                 const fromUnit = inputUnit.value;
                 const toUnit = outputUnit.value;
                 const config = unitConfigs[type];
-                
+
                 const result = config.convert(value, fromUnit, toUnit);
                 convertResult.textContent = result.toFixed(6).replace(/\.?0*$/, '') || '0';
             }
-            
+
             // 输入变化事件
             inputValue.addEventListener('input', convert);
             inputUnit.addEventListener('change', convert);
             outputUnit.addEventListener('change', convert);
-            
+
             // 交换单位
             swapBtn.addEventListener('click', () => {
                 const temp = inputUnit.value;
@@ -1118,120 +1174,120 @@ const SOLAR_TERMS = {
                 convert();
             });
         }
-            
-document.getElementById('tab-converter').addEventListener('click', () => {
-    // 原有样式切换逻辑
-    document.getElementById('tab-converter').classList.add('text-primary', 'border-b-2', 'border-primary');
-    document.getElementById('tab-converter').classList.remove('text-secondary');
-    document.getElementById('tab-calculator').classList.remove('text-primary', 'border-b-2', 'border-primary');
-    document.getElementById('tab-calculator').classList.add('text-secondary');
-    // 新增：隐藏亲属面板
-    document.getElementById('tab-relative').classList.remove('text-primary', 'border-b-2', 'border-primary');
-    document.getElementById('tab-relative').classList.add('text-secondary');
-    
-    // 面板显示逻辑
-    document.getElementById('converter-panel').classList.remove('hidden');
-    document.getElementById('calculator-panel').classList.add('hidden');
-    document.getElementById('relative-panel').classList.add('hidden');
-});
 
-document.getElementById('tab-calculator').addEventListener('click', () => {
-    // 原有样式切换逻辑
-    document.getElementById('tab-calculator').classList.add('text-primary', 'border-b-2', 'border-primary');
-    document.getElementById('tab-calculator').classList.remove('text-secondary');
-    document.getElementById('tab-converter').classList.remove('text-primary', 'border-b-2', 'border-primary');
-    document.getElementById('tab-converter').classList.add('text-secondary');
-    document.getElementById('tab-relative').classList.remove('text-primary', 'border-b-2', 'border-primary');
-    document.getElementById('tab-relative').classList.add('text-secondary');
-    
-    // 面板显示逻辑
-    document.getElementById('calculator-panel').classList.remove('hidden');
-    document.getElementById('converter-panel').classList.add('hidden');
-    document.getElementById('relative-panel').classList.add('hidden');
-});            
+        document.getElementById('tab-converter').addEventListener('click', () => {
+            // 原有样式切换逻辑
+            document.getElementById('tab-converter').classList.add('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-converter').classList.remove('text-secondary');
+            document.getElementById('tab-calculator').classList.remove('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-calculator').classList.add('text-secondary');
+            // 新增：隐藏亲属面板
+            document.getElementById('tab-relative').classList.remove('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-relative').classList.add('text-secondary');
 
-document.getElementById('tab-relative').addEventListener('click', () => {
-    // 原有样式切换逻辑
-    document.getElementById('tab-calculator').classList.remove('text-primary', 'border-b-2', 'border-primary');
-    document.getElementById('tab-calculator').classList.add('text-secondary');
-    document.getElementById('tab-converter').classList.remove('text-primary', 'border-b-2', 'border-primary');
-    document.getElementById('tab-converter').classList.add('text-secondary');
-    document.getElementById('tab-relative').classList.add('text-primary', 'border-b-2', 'border-primary');
-    document.getElementById('tab-relative').classList.remove('text-secondary');
-    
-    // 面板显示逻辑
-    document.getElementById('relative-panel').classList.remove('hidden');
-    document.getElementById('converter-panel').classList.add('hidden');
-    document.getElementById('calculator-panel').classList.add('hidden');
-});            
-            // 初始化计算器功能
-            function initCalculator() {
-                const calcProcess = document.getElementById('calc-process');
-                const calcResult = document.getElementById('calc-result');
-                let calcHistory = ''; // 保存等号前的输入内容
-                let isCalculated = false; // 是否已点击等号
+            // 面板显示逻辑
+            document.getElementById('converter-panel').classList.remove('hidden');
+            document.getElementById('calculator-panel').classList.add('hidden');
+            document.getElementById('relative-panel').classList.add('hidden');
+        });
 
-                // 绑定计算器按钮事件
-                const calcButtons = document.querySelectorAll('.calc-btn');
-                calcButtons.forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        const value = btn.getAttribute('data-value');
+        document.getElementById('tab-calculator').addEventListener('click', () => {
+            // 原有样式切换逻辑
+            document.getElementById('tab-calculator').classList.add('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-calculator').classList.remove('text-secondary');
+            document.getElementById('tab-converter').classList.remove('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-converter').classList.add('text-secondary');
+            document.getElementById('tab-relative').classList.remove('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-relative').classList.add('text-secondary');
 
-                        // AC：清空所有
-                        if (value === 'AC') {
-                            calcProcess.textContent = '';
-                            calcResult.textContent = '';
-                            calcHistory = '';
-                            isCalculated = false;
-                            return;
-                        }
+            // 面板显示逻辑
+            document.getElementById('calculator-panel').classList.remove('hidden');
+            document.getElementById('converter-panel').classList.add('hidden');
+            document.getElementById('relative-panel').classList.add('hidden');
+        });
 
-                        // DEL：删除最后一个字符
-                        if (value === 'DEL') {
-                            // 如果已计算，点击DEL回到计算前状态
-                            if (isCalculated) {
-                                calcProcess.textContent = calcHistory;
-                                calcResult.textContent = '';
-                                isCalculated = false;
-                            } else {
-                                // 未计算时删除最后一个字符
-                                const current = calcProcess.textContent;
-                                calcProcess.textContent = current.slice(0, -1);
-                            }
-                            return;
-                        }
+        document.getElementById('tab-relative').addEventListener('click', () => {
+            // 原有样式切换逻辑
+            document.getElementById('tab-calculator').classList.remove('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-calculator').classList.add('text-secondary');
+            document.getElementById('tab-converter').classList.remove('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-converter').classList.add('text-secondary');
+            document.getElementById('tab-relative').classList.add('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-relative').classList.remove('text-secondary');
 
-                        // 等号：计算结果
-                        if (value === '=') {
-                            if (!calcProcess.textContent) return;
-                            try {
-                                // 保存计算前的输入
-                                calcHistory = calcProcess.textContent;
-                                // 替换×为*，处理计算
-                                const expression = calcProcess.textContent.replace(/×/g, '*');
-                                // 安全计算（避免eval的安全问题，简化版）
-                                const result = Function(`'use strict'; return (${expression})`)();
-                                calcResult.textContent = result;
-                                isCalculated = true;
-                            } catch (e) {
-                                calcResult.textContent = '计算错误';
-                            }
-                            return;
-                        }
+            // 面板显示逻辑
+            document.getElementById('relative-panel').classList.remove('hidden');
+            document.getElementById('converter-panel').classList.add('hidden');
+            document.getElementById('calculator-panel').classList.add('hidden');
+        });
+        // 初始化计算器功能
+        function initCalculator() {
+            const calcProcess = document.getElementById('calc-process');
+            const calcResult = document.getElementById('calc-result');
+            let calcHistory = ''; // 保存等号前的输入内容
+            let isCalculated = false; // 是否已点击等号
 
-                        // 普通按键：数字/符号
-                        // 如果已计算，点击新按键清空结果并开始新输入
+            // 绑定计算器按钮事件
+            const calcButtons = document.querySelectorAll('.calc-btn');
+            calcButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const value = btn.getAttribute('data-value');
+
+                    // AC：清空所有
+                    if (value === 'AC') {
+                        calcProcess.textContent = '';
+                        calcResult.textContent = '';
+                        calcHistory = '';
+                        isCalculated = false;
+                        return;
+                    }
+
+                    // DEL：删除最后一个字符
+                    if (value === 'DEL') {
+                        // 如果已计算，点击DEL回到计算前状态
                         if (isCalculated) {
-                            calcProcess.textContent = value;
+                            calcProcess.textContent = calcHistory;
                             calcResult.textContent = '';
                             isCalculated = false;
                         } else {
-                            // 未计算时追加内容
-                            calcProcess.textContent += value;
+                            // 未计算时删除最后一个字符
+                            const current = calcProcess.textContent;
+                            calcProcess.textContent = current.slice(0, -1);
                         }
-                    });
+                        return;
+                    }
+
+                    // 等号：计算结果
+                    if (value === '=') {
+                        if (!calcProcess.textContent) return;
+                        try {
+                            // 保存计算前的输入
+                            calcHistory = calcProcess.textContent;
+                            // 替换×为*，处理计算
+                            const expression = calcProcess.textContent.replace(/×/g, '*');
+                            // 安全计算（避免eval的安全问题，简化版）
+                            const result = Function(`'use strict'; return (${expression})`)();
+                            calcResult.textContent = result;
+                            isCalculated = true;
+                        } catch (e) {
+                            calcResult.textContent = '计算错误';
+                        }
+                        return;
+                    }
+
+                    // 普通按键：数字/符号
+                    // 如果已计算，点击新按键清空结果并开始新输入
+                    if (isCalculated) {
+                        calcProcess.textContent = value;
+                        calcResult.textContent = '';
+                        isCalculated = false;
+                    } else {
+                        // 未计算时追加内容
+                        calcProcess.textContent += value;
+                    }
                 });
-            }
+            });
+        }
 
         // 初始化备忘录
         function initNotes() {
@@ -1243,29 +1299,29 @@ document.getElementById('tab-relative').addEventListener('click', () => {
             const notesList = document.getElementById('notes-list');
             const emptyTip = document.getElementById('empty-tip');
             const currentNoteId = document.getElementById('current-note-id');
-            
+
             // 获取备忘录
             function getNotes() {
                 const notes = localStorage.getItem('notes');
                 return notes ? JSON.parse(notes) : [];
             }
-            
+
             // 保存备忘录
             function saveNotes(notes) {
                 localStorage.setItem('notes', JSON.stringify(notes));
                 renderNotes();
             }
-            
+
             // 渲染备忘录列表
             function renderNotes() {
                 const notes = getNotes();
                 notesList.innerHTML = '';
-                
+
                 if (notes.length === 0) {
                     notesList.appendChild(emptyTip);
                     return;
                 }
-                
+
                 notes.forEach(note => {
                     const item = document.createElement('div');
                     item.className = 'note-item';
@@ -1279,30 +1335,30 @@ document.getElementById('tab-relative').addEventListener('click', () => {
                     `;
                     notesList.appendChild(item);
                 });
-                
+
                 // 绑定编辑删除事件
                 document.querySelectorAll('.edit-btn').forEach(btn => {
                     btn.addEventListener('click', () => editNote(btn.dataset.id));
                 });
-                
+
                 document.querySelectorAll('.delete-btn').forEach(btn => {
                     btn.addEventListener('click', () => deleteNote(btn.dataset.id));
                 });
             }
-            
+
             // 添加/编辑备忘录
             function addNote() {
                 const title = noteTitle.value.trim();
                 const content = noteContent.value.trim();
-                
+
                 if (!title) {
                     alert('请输入标题');
                     return;
                 }
-                
+
                 const notes = getNotes();
                 const id = currentNoteId.value || Date.now().toString();
-                
+
                 // 编辑模式
                 if (currentNoteId.value) {
                     const index = notes.findIndex(n => n.id === id);
@@ -1313,50 +1369,50 @@ document.getElementById('tab-relative').addEventListener('click', () => {
                     // 新增模式
                     notes.push({ id, title, content });
                 }
-                
+
                 saveNotes(notes);
                 clearForm();
             }
-            
+
             // 编辑备忘录
             function editNote(id) {
                 const notes = getNotes();
                 const note = notes.find(n => n.id === id);
-                
+
                 if (note) {
                     noteTitle.value = note.title;
                     noteContent.value = note.content;
                     currentNoteId.value = note.id;
                 }
             }
-            
+
             // 删除备忘录
             function deleteNote(id) {
                 if (!confirm('确定要删除这条备忘录吗？')) return;
-                
+
                 let notes = getNotes();
                 notes = notes.filter(n => n.id !== id);
                 saveNotes(notes);
             }
-            
+
             // 清空表单
             function clearForm() {
                 noteTitle.value = '';
                 noteContent.value = '';
                 currentNoteId.value = '';
             }
-            
+
             // 清空所有
             function deleteAll() {
                 if (!confirm('确定要清空所有备忘录吗？')) return;
                 saveNotes([]);
             }
-            
+
             // 绑定事件
             saveNote.addEventListener('click', addNote);
             clearNote.addEventListener('click', clearForm);
             deleteAllNotes.addEventListener('click', deleteAll);
-            
+
             // 初始化渲染
             renderNotes();
         }
@@ -1370,13 +1426,13 @@ document.getElementById('tab-relative').addEventListener('click', () => {
         function saveCustomSite(site) {
             const sites = getCustomSites();
             sites.push({
-                id: Date.now().toString(), 
+                id: Date.now().toString(),
                 name: site.name,
                 url: site.url,
                 icon: site.icon || '',
-                typeId: site.typeId, 
-                typeName: site.typeName, 
-                typeEmoji: site.typeEmoji 
+                typeId: site.typeId,
+                typeName: site.typeName,
+                typeEmoji: site.typeEmoji
             });
             localStorage.setItem('customSites', JSON.stringify(sites));
             renderCustomSites();
@@ -1385,7 +1441,7 @@ document.getElementById('tab-relative').addEventListener('click', () => {
         // 删除自定义网站
         function deleteCustomSite(siteId) {
             if (!confirm('确定要删除这个网站快捷入口吗？')) return;
-            
+
             let sites = getCustomSites();
             sites = sites.filter(site => site.id !== siteId);
             localStorage.setItem('customSites', JSON.stringify(sites));
@@ -1396,7 +1452,7 @@ document.getElementById('tab-relative').addEventListener('click', () => {
         function renderCustomSites() {
             const container = document.getElementById('custom-sites-container');
             container.innerHTML = '';
-            
+
             const sites = getCustomSites();
             sites.forEach(site => {
                 const siteCard = document.createElement('a');
@@ -1404,7 +1460,7 @@ document.getElementById('tab-relative').addEventListener('click', () => {
                 siteCard.target = '_blank';
                 siteCard.className = 'nav-card';
                 siteCard.dataset.siteId = site.id; // 存储ID
-                
+
                 // 删除按钮
                 const deleteBtn = document.createElement('div');
                 deleteBtn.className = 'delete-btn';
@@ -1414,16 +1470,16 @@ document.getElementById('tab-relative').addEventListener('click', () => {
                     e.stopPropagation();
                     deleteCustomSite(site.id);
                 });
-                
+
                 // 图标容器
                 const iconWrapper = document.createElement('div');
                 iconWrapper.className = 'nav-icon-wrapper bg-primary/10';
-                
+
                 // 创建emoji元素（作为备用）
                 const emojiElement = document.createElement('div');
                 emojiElement.className = 'emoji-icon';
                 emojiElement.textContent = site.typeEmoji;
-                
+
                 // 优先使用自定义图标，否则使用网站favicon，最后使用类型emoji
                 if (site.icon) {
                     // 使用自定义图标
@@ -1431,12 +1487,12 @@ document.getElementById('tab-relative').addEventListener('click', () => {
                     iconImg.alt = `${site.name}图标`;
                     iconImg.className = 'w-6 h-6 object-contain';
                     iconImg.src = site.icon;
-                    
+
                     // 先添加图片
                     iconWrapper.appendChild(iconImg);
-                    
+
                     // 图标加载失败时显示emoji
-                    iconImg.onerror = function() {
+                    iconImg.onerror = function () {
                         // 移除失败的图片，添加emoji
                         iconWrapper.removeChild(iconImg);
                         iconWrapper.appendChild(emojiElement);
@@ -1449,12 +1505,12 @@ document.getElementById('tab-relative').addEventListener('click', () => {
                         iconImg.alt = `${site.name}图标`;
                         iconImg.className = 'w-6 h-6 object-contain';
                         iconImg.src = `${urlObj.protocol}//${urlObj.host}/favicon.ico`;
-                        
+
                         // 先添加图片
                         iconWrapper.appendChild(iconImg);
-                        
+
                         // favicon加载失败时显示emoji
-                        iconImg.onerror = function() {
+                        iconImg.onerror = function () {
                             // 移除失败的图片，添加emoji
                             iconWrapper.removeChild(iconImg);
                             iconWrapper.appendChild(emojiElement);
@@ -1464,12 +1520,12 @@ document.getElementById('tab-relative').addEventListener('click', () => {
                         iconWrapper.appendChild(emojiElement);
                     }
                 }
-                
+
                 // 网站名称
                 const nameSpan = document.createElement('span');
                 nameSpan.className = 'text-xs font-medium text-dark';
                 nameSpan.textContent = site.name;
-                
+
                 // 组装卡片
                 siteCard.appendChild(deleteBtn);
                 siteCard.appendChild(iconWrapper);
@@ -1483,12 +1539,12 @@ document.getElementById('tab-relative').addEventListener('click', () => {
                 // 1. 先询问网址
                 let url = prompt('请输入网站网址（如：https://www.baidu.com）：');
                 if (!url) return;
-                
+
                 // 自动补全http
                 if (!url.startsWith('http')) {
                     url = 'https://' + url;
                 }
-                
+
                 // 验证URL
                 try {
                     new URL(url);
@@ -1496,27 +1552,27 @@ document.getElementById('tab-relative').addEventListener('click', () => {
                     alert('网址格式错误！请重新输入正确的网址');
                     return;
                 }
-                
+
                 // 2. 询问网站名称
                 const name = prompt('请输入网站名称（如：百度）：');
                 if (!name) return;
-                
+
                 // 3. 询问网站类型（数字选择）
                 const typeOptions = SITE_TYPES.map(type => `${type.id}. ${type.name} ${type.emoji}`).join('\n');
                 const typeInput = prompt(`请选择网站类型（输入对应数字）：\n${typeOptions}`);
-                
+
                 if (!typeInput) return;
                 const typeId = parseInt(typeInput);
                 const selectedType = SITE_TYPES.find(type => type.id === typeId);
-                
+
                 if (!selectedType) {
                     alert('请输入正确的数字选择网站类型！');
                     return;
                 }
-                
+
                 // 4. 询问网站图标链接
                 const icon = prompt('留空或输入网站图标链接：');
-                
+
                 // 保存网站信息
                 saveCustomSite({
                     name,
@@ -1526,7 +1582,7 @@ document.getElementById('tab-relative').addEventListener('click', () => {
                     typeName: selectedType.name,
                     typeEmoji: selectedType.emoji
                 });
-                
+
                 alert(`${name}（${selectedType.name}）已添加到快捷导航！`);
             });
         }
@@ -1540,9 +1596,9 @@ document.getElementById('tab-relative').addEventListener('click', () => {
             const body = document.body;
             const themeIcon = document.querySelector('#theme-toggle .fa');
             const themeText = document.getElementById('theme-text');
-            
+
             const isDark = body.classList.contains('dark-mode');
-            
+
             if (isDark) {
                 body.classList.remove('dark-mode');
                 body.classList.add('light-mode');
@@ -1561,7 +1617,7 @@ document.getElementById('tab-relative').addEventListener('click', () => {
             const themeIcon = document.querySelector('#theme-toggle .fa');
             const themeText = document.getElementById('theme-text');
             const isDark = shouldUseDarkMode();
-            
+
             if (isDark) {
                 body.classList.remove('light-mode');
                 body.classList.add('dark-mode');
@@ -1589,27 +1645,27 @@ document.getElementById('tab-relative').addEventListener('click', () => {
             const hours = now.getHours().toString().padStart(2, '0');
             const minutes = now.getMinutes().toString().padStart(2, '0');
             const seconds = now.getSeconds().toString().padStart(2, '0');
-            
+
             // 数字时钟
             document.getElementById('digital-clock').textContent = `${hours}:${minutes}:${seconds}`;
-            
+
             // 星期
             const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
             document.getElementById('week-day').textContent = weekdays[now.getDay()];
-            
+
             // 公历日期
             const year = now.getFullYear();
             const month = now.getMonth() + 1;
             const day = now.getDate();
             document.getElementById('gregorian-date').textContent = `${year}年${month}月${day}日`;
-            
+
             // 农历日期
             const lunar = LunarConverter.getLunarDate(now);
             document.getElementById('lunar-date').textContent = lunar.fullText;
-            
+
             // 节日信息
             document.getElementById('festival-info').textContent = getTodayFestival(now, lunar);
-            
+
             // 问候语
             const greetingEl = document.getElementById('greeting');
             let greeting = '';
@@ -1621,12 +1677,12 @@ document.getElementById('tab-relative').addEventListener('click', () => {
             else if (hours < 22) greeting = '晚上好，放松一下吧';
             else greeting = '夜深了，早点休息哦';
             greetingEl.textContent = greeting;
-            
+
             // 更新倒计时
             updateCountdownDisplay();
         }
 
-                // ========== 新增：搜索功能初始化（必应+百度+谷歌） ==========
+        // ========== 新增：搜索功能初始化（必应+百度+谷歌） ==========
         function initSearch() {
             const searchBtn = document.getElementById('search-btn');
             const searchInput = document.getElementById('search-input');
@@ -1677,7 +1733,7 @@ document.getElementById('tab-relative').addEventListener('click', () => {
             // 初始化时钟
             updateClock();
             setInterval(updateClock, 1000);
-            
+
             // 初始化功能模块
             initAddBirthdayBtn();
             initAddCustomDateBtn();
@@ -1688,10 +1744,11 @@ document.getElementById('tab-relative').addEventListener('click', () => {
             initAddSiteBtn();
             initTheme();
             initSearch();
-            
+
             // 渲染自定义网站
             renderCustomSites();
         });
     </script>
 </body>
+
 </html>
