@@ -1,16 +1,18 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>方块0N的主页</title>
-        <style type="text/css">
-             * {
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方块0N的主页</title>
+    <style type="text/css">
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Arial', 'Microsoft YaHei', sans-serif;
         }
-       body {
+
+        body {
             background-color: #f5f7fa;
             display: flex;
             flex-direction: column;
@@ -18,6 +20,7 @@
             padding: 40px 20px;
             min-height: 100vh;
         }
+
         .task-title {
             color: #2c3e50;
             margin-bottom: 30px;
@@ -25,6 +28,7 @@
             font-weight: 600;
             text-align: center;
         }
+
         .task-container {
             width: 100%;
             max-width: 800px;
@@ -33,6 +37,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             padding: 20px;
         }
+
         .task-item {
             display: flex;
             align-items: center;
@@ -41,12 +46,15 @@
             transition: background-color 0.3s ease;
             cursor: pointer;
         }
+
         .task-item:last-child {
             border-bottom: none;
         }
+
         .task-item:hover {
             background-color: #f8f9fa;
         }
+
         .task-number {
             width: 36px;
             height: 36px;
@@ -60,37 +68,44 @@
             margin-right: 20px;
             flex-shrink: 0;
         }
+
         .task-content {
             flex: 1;
             font-size: 1.1rem;
             color: #34495e;
             transition: all 0.3s ease;
         }
+
         .task-item.completed .task-content {
             text-decoration: line-through;
             color: #95a5a6;
         }
+
         .task-item.completed .task-number {
             background-color: #2ecc71;
         }
+
         @media (max-width: 600px) {
             .task-title {
                 font-size: 1.8rem;
             }
+
             .task-content {
                 font-size: 1rem;
             }
+
             .task-number {
                 width: 30px;
                 height: 30px;
                 font-size: 0.9rem;
             }
-        }     
-         </style>
-    </head>
-    <body>
-        <h1 class="task-title">黄哲谦的十个任务</h1>
-        <div class="task-container">
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="task-title">黄哲谦的十个任务</h1>
+    <div class="task-container">
         <div class="task-item" onclick="toggleComplete(this)">
             <div class="task-number">1</div>
             <div class="task-content">建造一个木屋</div>
@@ -132,13 +147,16 @@
             <div class="task-content">修建一条地铁</div>
         </div>
     </div>
-    <div class="task-content">·完成后点击对应任务，再次点击可取消</div>
-    <div class="task-content">·每个项目100分，60分及格</div>
-    <div class="task-content">·前一项目未及格则无法开始下一项目</div>
+    <ul>
+        <li class="task-content">完成后点击对应任务，再次点击可取消</li>
+        <li class="task-content">每个项目100分，不少于60分为及格</li>
+        <li class="task-content">前一项目未及格则无法开始下一项目</li>
+    </ul>
     <script>
         function toggleComplete(taskElement) {
             taskElement.classList.toggle('completed');
         }
     </script>
-    </body>
+</body>
+
 </html>

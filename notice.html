@@ -4,17 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="龙港/苍南公交改线公告，含2路/13路/A1路/9路等线路临时调整信息">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>改线公告</title>
     <style>
-        /* 全局样式重置 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* 页面基础样式 */
         body {
             font-family: "Microsoft YaHei", "Heiti SC", sans-serif;
             background-color: #f0f4f8;
@@ -28,8 +27,7 @@
             flex-direction: column;
         }
 
-        /* 标题样式 */
-        .page-title {
+        h1 {
             text-align: center;
             font-size: 2rem;
             color: #2c3e50;
@@ -39,8 +37,7 @@
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
         }
 
-        /* 改线内容容器 */
-        .about-container {
+        main {
             background-color: white;
             border-radius: 10px;
             padding: 30px 25px;
@@ -49,8 +46,7 @@
             flex: 1;
         }
 
-        /* 内容标题 */
-        .about-title {
+        h2 {
             font-size: 1.3rem;
             color: #2c3e50;
             margin: 25px 0 15px;
@@ -58,27 +54,42 @@
             border-left: 3px solid #3498db;
         }
 
-        /* 段落样式 */
-        .about-text {
-            color: #555;
+        a,
+        ul li {
+            color: #4e4e4e;
             font-size: 1rem;
             line-height: 1.8;
             margin-bottom: 15px;
-            text-indent: 2em;
+            text-decoration: none;
         }
 
-        /* 响应式调整 */
+        ul {
+            padding-left: 2em;
+        }
+
+        img {
+            width: 49%;
+        }
+
+        .img1 {
+            float: left;
+        }
+
+        .img2 {
+            float: right;
+        }
+
         @media (max-width: 600px) {
-            .page-title {
+            h1 {
                 font-size: 1.5rem;
                 margin: 15px 0 20px;
             }
 
-            .about-title {
+            h2 {
                 font-size: 1.1rem;
             }
 
-            .about-text {
+            p {
                 font-size: 0.9rem;
                 text-indent: 1em;
             }
@@ -87,20 +98,33 @@
 </head>
 
 <body>
-    <h1 class="page-title">改线公告</h1>
-    <!-- 改线公告核心内容 -->
-    <div class="about-container">
-        <h2 class="about-title">一、龙港公交</h2>
-        <p>
-            <a href="https://mp.weixin.qq.com/s/LoDuLfyrrXqcJbf2GqPuYQ" class="about-text">2路、13路、A1路临时调整</a>
-        </p>
-        <h2 class="about-title">二、苍南公交</h2>
-        <p class="about-text">
-            107路临时调整
-        </p>
-        <img src="117路改1.png" width="100%" height="auto">
-        <img src="117路改2.png" width="100%" height="auto">
+    <h1>改线公告</h1>
+    <main>
+        <h2>一、龙港公交</h2>
+        <ul>
+            <li>
+                <a href="https://mp.weixin.qq.com/s/LoDuLfyrrXqcJbf2GqPuYQ">2路、13路、A1路临时调整</a>
+            </li>
+            <li>
+                9路、K005路临时调整
+                <p>取消站点：老台、炉头、环港、浃底、方城浦、友谊社区、潘处、舥艚（山塘文化礼堂）</p>
+                <p>新增站点：老台临时下客点（往新城华府）、新城华府</p>
+            </li>
+        </ul>
 
+        <h2>二、苍南公交</h2>
+        <ul>
+            <li>
+                117路临时调整
+            </li>
+        </ul>
+        <a href="117路改1.png">
+            <img src="117路改1.png" class="img1" alt="117路改1">
+        </a>
+        <a href="117路改2.png">
+            <img src="117路改2.png" class="img2" alt="117路改2">
+        </a>
+    </main>
 </body>
 
 </html>
