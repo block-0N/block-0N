@@ -30,6 +30,62 @@
             flex-direction: column;
         }
 
+        .search-result {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+        }
+
+        .search-result-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f4f8;
+            transition: background-color 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-result-item:hover {
+            background-color: #e8f4fd;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 4px;
+        }
+
+        .result-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .no-result {
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
         .header-nav {
             display: flex;
             justify-content: space-between;
@@ -62,13 +118,18 @@
             font-weight: 500;
         }
 
+        /* 基础容器 - 调整为flex布局，适配搜索框+按钮 */
         .search-container {
-            max-width: 500px;
-            margin: 0 auto 30px;
             position: relative;
+            width: 400px;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        #search-input {
+        /* 搜索输入框 */
+        .search-input {
             width: 100%;
             padding: 12px 20px;
             border: 1px solid #ddd;
@@ -78,11 +139,12 @@
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        #search-input:focus {
-            border-color: #3498db;
-            box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+        .search-input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
+        /* 新增：搜索按钮样式 */
         .search-btn {
             position: absolute;
             right: 10px;
@@ -98,7 +160,88 @@
         }
 
         .search-btn:hover {
-            background-color: #2980b9;
+            background-color: #1d4ed8;
+        }
+
+        .search-btn:active {
+            background-color: #1e40af;
+        }
+
+        /* 下拉框（统一用search-result，废弃search-dropdown） */
+        .search-dropdown {
+            display: none;
+        }
+
+        /* 条目文本 */
+        .item-text {
+            flex: 1;
+            font-size: 14px;
+            color: #111827;
+        }
+
+        /* 按钮组 */
+        .item-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* 功能按钮 */
+        .item-btn {
+            padding: 4px 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            background: #fff;
+            font-size: 12px;
+            color: #374151;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .item-btn:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+            background: #f9fafb;
+        }
+
+        .item-btn:disabled {
+            border-color: #f3f4f6;
+            color: #9ca3af;
+            cursor: not-allowed;
+            background: #fff;
+        }
+
+        /* 空状态 */
+        .empty-state {
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        /* 加载状态 */
+        .loading-state {
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 480px) {
+            .search-container {
+                width: 100%;
+                padding: 0 16px;
+            }
+
+            .item-btn {
+                padding: 2px 6px;
+                font-size: 11px;
+            }
+
+            .search-btn {
+                padding: 12px 16px;
+                font-size: 13px;
+            }
         }
 
         .update-tip {
@@ -296,8 +439,9 @@
     <h1 class="page-title">温州县域公交·龙港-苍南公交</h1>
 
     <div class="search-container">
-        <input type="text" id="search-input" placeholder="输入公交线路">
-        <button class="search-btn" onclick="searchRoute()">搜索</button>
+        <input type="text" id="search-input" placeholder="输入公交线路" class="search-input">
+        <button id="search-btn" class="search-btn" onclick="searchRoute()">搜索</button>
+        <div id="search-result" class="search-result"></div>
     </div>
 
     <h2 class="category-title">POV视频合集</h2>
@@ -369,85 +513,349 @@
     <div class="footer">
         <p>温州县域公交信息平台 © 2026 版权所有</p>
         <p>温馨提示：本平台为公益性信息平台，无任何商业运营行为</p>
-        <p>数据更新时间：2026年2月 | 联系电话：17857746331</p>
+        <p>数据更新时间：2026年4月</p>
     </div>
 
     <script>
+        const busRoutes = [
+            {
+                "name": "龙港公交1路",
+                "alias": ["龙港1路", "1路"],
+                "area": "龙港",
+                "desc": "龙港1路：龙港客运中心 - 现代印务港，途经人民路、世纪大道、新城产业园，覆盖龙港主城区与新城核心产业区",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交1路",
+                "povUrl": "https://www.bilibili.com/video/BV1c6U5BAEA6",
+                "routeUrl": "1路.jpg",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交1路"
+            },
+            {
+                "name": "龙港公交2路",
+                "alias": ["龙港2路", "2路"],
+                "area": "龙港",
+                "desc": "龙港2路：龙港客运中心 - 经济产业发展中心，途经龙翔路、临港大道，覆盖龙港主城区与新城住宅区",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交2路",
+                "povUrl": "https://www.bilibili.com/video/BV1QqqrBfEJh",
+                "routeUrl": "https://map.baidu.com/search/%E9%BE%99%E6%B8%AF2%E8%B7%AF/@13420860.889029704,3174952.71,14.5z?querytype=s&da_src=shareurl&wd=%E9%BE%99%E6%B8%AF2%E8%B7%AF&c=178&src=0&wd2=%E6%B8%A9%E5%B7%9E%E5%B8%82&pn=0&sug=1&l=13&b=(13407110,3156219;13456006,3180379)&from=webmap&biz_forward=%7B%22scaler%22:2,%22styles%22:%22pl%22%7D&sug_forward=7dbcc3b69768d5cf130daad7&device_ratio=2",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交2路"
+            },
+            {
+                "name": "龙港公交5路",
+                "alias": ["龙港5路", "5路"],
+                "area": "龙港",
+                "desc": "龙港5路：龙港客运中心 - 青龙湖实验室，接驳温医大附一院龙港院区、政务客厅、新城片区",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交5路",
+                "povUrl": "https://www.bilibili.com/video/BV1xBrDB9EfZ",
+                "routeUrl": "5路.png",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交5路"
+            },
+            {
+                "name": "龙港公交6路",
+                "alias": ["龙港6路", "6路"],
+                "area": "龙港",
+                "desc": "龙港6路：城中首末站 - 陈家堡，途经龙港城区、埭金线",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交6路",
+                "povUrl": "https://www.bilibili.com/video/BV1QU2tBjEh5",
+                "routeUrl": "6路.jpeg",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交6路"
+            },
+            {
+                "name": "龙港公交7路",
+                "alias": ["龙港7路", "7路"],
+                "area": "龙港",
+                "desc": "龙港7路：龙港客运中心 - 陈处社区，途经苍南县钱库镇，是芦浦、海城等片区前往龙港城区的主干线路之一",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交7路",
+                "povUrl": "https://www.bilibili.com/video/BV1a7BxBnEPB",
+                "routeUrl": "7路.jpeg",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交7路"
+            },
+            {
+                "name": "龙港公交8路",
+                "alias": ["龙港8路", "8路"],
+                "area": "龙港",
+                "desc": "龙港8路（园博会专线）：城市公园 - 体育中心，园博公交接驳专线，途经青龙湖、图书馆、月湖公园",
+                "url": "龙港公交8路.html",
+                "povUrl": "https://www.bilibili.com/video/BV1g7QJBPErF",
+                "routeUrl": "8路.jpg",
+                "overviewUrl": "龙港公交8路.html"
+            },
+            {
+                "name": "龙港公交9路",
+                "alias": ["龙港9路", "9路"],
+                "area": "龙港",
+                "desc": "龙港9路：龙港客运中心 - 新城华府，连接龙港城区、白沙、海城、芦浦及舥艚，是龙翔路的主干线路",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交9路",
+                "povUrl": "https://www.bilibili.com/video/BV17gCQBSEQm",
+                "routeUrl": "9路.jpeg",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交9路"
+            },
+            {
+                "name": "龙港公交10路",
+                "alias": ["龙港10路", "10路"],
+                "area": "龙港",
+                "desc": "龙港10路：月湖公园 - 礼品城，连接龙港新城中央商务区、城东工业园区、人民路、龙港大道及礼品城",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交10路",
+                "povUrl": "https://www.bilibili.com/video/BV1hjUWBzEiZ",
+                "routeUrl": "10路.jpeg",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交10路"
+            },
+            {
+                "name": "龙港公交11路",
+                "alias": ["龙港11路", "11路"],
+                "area": "龙港",
+                "desc": "龙港11路：城中首末站 - 龙源社区，途经人民路、镇前路、西一路、东新街、湖振线、湖前",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交11路",
+                "povUrl": "https://www.bilibili.com/video/BV1uzmqBMEuH",
+                "routeUrl": "11路.jpeg",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交11路"
+            },
+            {
+                "name": "龙港公交12路",
+                "alias": ["龙港12路", "12路"],
+                "area": "龙港",
+                "desc": "龙港12路：韩家垟 - 姜立夫故居，连接韩家垟、人民路、西一街、客运中心、金田集团、新雅工业园、小微企业创业园、凰浦及麟头",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交12路",
+                "povUrl": "https://www.bilibili.com/video/BV1n3mABbEDH",
+                "routeUrl": "https://map.baidu.com/search/龙港12路/@13411153.142780084,3174133.92,12.83z?querytype=s&da_src=shareurl&wd=龙港12路&c=178&src=0&wd2=温州市&pn=0&sug=1&l=13&b=(13397442,3167112;13421730,3191112)&from=webmap&biz_forward=%7B",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交12路"
+            },
+            {
+                "name": "龙港公交13路",
+                "alias": ["龙港13路", "13路"],
+                "area": "龙港",
+                "desc": "龙港13路：城中首末站 - 姜立夫故居，途经西三街、龙港大道、姜立夫故居、中对口社区、江山社区、湖前",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交13路",
+                "povUrl": "https://www.bilibili.com/video/BV1FCydBqET6",
+                "routeUrl": "13路.jpg",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交13路"
+            },
+            {
+                "name": "龙港公交15路",
+                "alias": ["龙港15路", "15路"],
+                "area": "龙港",
+                "desc": "龙港15路：城中首末站 - 长连屋，城郊居民区接驳线，连接三垟社区、湖前",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交15路",
+                "povUrl": "https://www.bilibili.com/video/BV1VkxEzoEHD",
+                "routeUrl": "15路.jpeg",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交15路"
+            },
+            {
+                "name": "龙港公交16路",
+                "alias": ["龙港16路", "16路"],
+                "area": "龙港",
+                "desc": "龙港16路：城中首末站 - 上对口，连接三垟社区、湖前、中对口社区",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交156路",
+                "povUrl": "https://www.bilibili.com/video/BV1gTw1zAEaJ",
+                "routeUrl": "16路.jpeg",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交16路"
+            },
+            {
+                "name": "龙港公交17路",
+                "alias": ["龙港17路", "17路"],
+                "area": "龙港",
+                "desc": "龙港17路：温州医科大学附属第一医院龙港院区 - 滨江社区，途径新城大道、世纪大道、人民路、通港路、西一路、宜山镇",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交17路",
+                "povUrl": "https://www.bilibili.com/video/BV1qRCQBUETX",
+                "routeUrl": "17路.jpeg",
+                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交17路"
+            },
+            {
+                "name": "龙港公交B5路",
+                "alias": ["龙港B5路", "B5路"],
+                "area": "龙港",
+                "desc": "龙港B5路：湖前西桥首末站 - 祥龙里首末站，湖前—老城—新城社区巴士",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交B5路",
+                "povUrl": "longgangbuspov.html#B5路",
+                "routeUrl": "longgangbusroute.html#B5路",
+                "overviewUrl": "longgangbusintroduction.html#B5路"
+            },
+            {
+                "name": "龙港公交801路",
+                "alias": ["龙港801路", "801路"],
+                "area": "龙港",
+                "desc": "龙港801路：龙港城区 - 金乡镇，龙港东部城乡跨镇快线",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交801路",
+                "povUrl": "longgangbuspov.html#801路",
+                "routeUrl": "longgangbusroute.html#801路",
+                "overviewUrl": "longgangbusintroduction.html#801路"
+            },
+            {
+                "name": "龙港公交803路",
+                "alias": ["龙港803路", "803路"],
+                "area": "龙港",
+                "desc": "龙港803路：温医大附一院龙港院区 - 石砰，龙港—金乡—石砰长途城乡线，分段票价2-5元",
+                "url": "https://wiki.wzbus.net/wiki/龙港公交803路",
+                "povUrl": "longgangbuspov.html#803路",
+                "routeUrl": "longgangbusroute.html#803路",
+                "overviewUrl": "longgangbusintroduction.html#803路"
+            },
+            {
+                "name": "苍南公交101路",
+                "alias": ["苍南101路", "101路"],
+                "area": "苍南",
+                "desc": "苍南101路：灵溪客运站 - 龙港大桥，灵溪龙港跨区域城市主线",
+                "url": "https://wiki.wzbus.net/wiki/苍南公交101路",
+                "povUrl": "cangnanbuspov.html#101路",
+                "routeUrl": "cangnanbusroute.html#101路",
+                "overviewUrl": "cangnanbusintroduction.html#101路"
+            },
+            {
+                "name": "苍南公交105路",
+                "alias": ["苍南105路", "105路"],
+                "area": "苍南",
+                "desc": "苍南105路：苍南书城 - 合景天玺，灵溪城区内环主线，途经人民医院、红星村",
+                "url": "https://wiki.wzbus.net/wiki/苍南公交105路",
+                "povUrl": "cangnanbuspov.html#105路",
+                "routeUrl": "cangnanbusroute.html#105路",
+                "overviewUrl": "cangnanbusintroduction.html#105路"
+            },
+            {
+                "name": "苍南公交106路",
+                "alias": ["苍南106路", "106路"],
+                "area": "苍南",
+                "desc": "苍南106路：苍南动车站 - 金乡，覆盖苍南东部灵溪、宜山、金乡乡镇",
+                "url": "https://wiki.wzbus.net/wiki/苍南公交106路",
+                "povUrl": "cangnanbuspov.html#106路",
+                "routeUrl": "cangnanbusroute.html#106路",
+                "overviewUrl": "cangnanbusintroduction.html#106路"
+            },
+            {
+                "name": "苍南公交111路",
+                "alias": ["苍南111路", "111路"],
+                "area": "苍南",
+                "desc": "苍南111路：余桥社区 - 江南新区，2026.4.17最新延伸调整",
+                "url": "https://wiki.wzbus.net/wiki/苍南公交111路",
+                "povUrl": "cangnanbuspov.html#111路",
+                "routeUrl": "cangnanbusroute.html#111路",
+                "overviewUrl": "cangnanbusintroduction.html#111路"
+            },
+            {
+                "name": "苍南LQ12路",
+                "alias": ["苍南LQ12路", "LQ12路"],
+                "area": "苍南",
+                "desc": "苍南LQ12路：苍南汽车北站 - 钱库车站，原LY12改线，灵溪—宜山—钱库跨镇城乡线",
+                "url": "https://wiki.wzbus.net/wiki/苍南LQ12路",
+                "povUrl": "cangnanbuspov.html#LQ12路",
+                "routeUrl": "cangnanbusroute.html#LQ12路",
+                "overviewUrl": "cangnanbusintroduction.html#LQ12路"
+            },
+            {
+                "name": "苍南龙港公交K001路",
+                "alias": ["K001路", "龙港K001", "苍南K001"],
+                "area": "龙港/苍南",
+                "desc": "K001路：龙港客运中心 ↔ 苍南动车站，龙港苍南城际直达快线，6:12-19:00运营",
+                "url": "https://wiki.wzbus.net/wiki/苍南龙港公交K001路",
+                "povUrl": "longgangbuspov.html#K001路",
+                "routeUrl": "longgangbusroute.html#K001路",
+                "overviewUrl": "longgangbusintroduction.html#K001路"
+            }
+        ];
+
+        // 工具函数：关键词高亮
+        function highlightKeyword(text, keyword) {
+            if (!keyword) return text;
+            const reg = new RegExp(keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+            return text.replace(reg, (match) => `<span class="highlight">${match}</span>`);
+        }
+
+        // 核心搜索逻辑：多维度模糊匹配 + 渲染按钮
         function searchRoute() {
             const searchInput = document.getElementById('search-input');
+            const resultContainer = document.getElementById('search-result');
             const keyword = searchInput.value.trim().toLowerCase();
 
+            // 清空结果容器
+            resultContainer.innerHTML = '';
+            resultContainer.style.display = 'none';
+
+            // 空输入校验
             if (!keyword) {
-                alert('输入公交线路');
+                alert('请输入公交线路号、区域或关键词（如：5路、龙港、K001）');
                 return;
             }
 
-            // 基础域名
-            const baseUrl = 'https://wiki.wzbus.net/wiki/';
-            // 处理特殊线路（K001路）
-            const specialRoutes = {
-                'k001路': '苍南龙港公交K001路'
-            };
-            // 提取线路核心信息并构建目标路径
-            let targetRouteName = '';
+            // 多维度匹配线路
+            const matchedRoutes = busRoutes.filter(route => {
+                return route.name.toLowerCase().includes(keyword) ||
+                    route.alias.some(alias => alias.toLowerCase().includes(keyword)) ||
+                    route.area.toLowerCase().includes(keyword) ||
+                    route.desc.toLowerCase().includes(keyword);
+            });
 
-            // 优先匹配特殊线路
-            if (specialRoutes[keyword]) {
-                targetRouteName = specialRoutes[keyword];
-            } else {
-                // 匹配龙港公交线路（如：龙港5路、龙港公交A1路、A1路 龙港）
-                const longgangMatch = keyword.match(/(龙港).*?([a-zA-Z0-9]+路)|([a-zA-Z0-9]+路).*?(龙港)/);
-                // 匹配苍南公交线路（如：苍南LJ08路、苍南公交101路、102路 苍南）
-                const cangnanMatch = keyword.match(/(苍南).*?([a-zA-Z0-9]+路)|([a-zA-Z0-9]+路).*?(苍南)/);
+            // 展示搜索结果（含按钮）
+            if (matchedRoutes.length > 0) {
+                resultContainer.style.display = 'block';
+                matchedRoutes.forEach(route => {
+                    const item = document.createElement('div');
+                    item.className = 'search-result-item';
 
-                if (longgangMatch) {
-                    // 提取线路号（如5路、A1路）
-                    const lineNum = longgangMatch[2] || longgangMatch[3];
-                    targetRouteName = `龙港公交${lineNum}`;
-                } else if (cangnanMatch) {
-                    const lineNum = cangnanMatch[2] || cangnanMatch[3];
-                    targetRouteName = `苍南公交${lineNum}`;
-                } else {
-                    // 兜底：直接尝试拼接（适用于明确输入如"龙港公交5路"的情况）
-                    targetRouteName = keyword.replace(/公交| /g, '');
-                    // 补充"公交"关键词（如输入"龙港5路"→"龙港公交5路"）
-                    if (targetRouteName.includes('龙港') && !targetRouteName.includes('公交')) {
-                        targetRouteName = targetRouteName.replace('龙港', '龙港公交');
-                    } else if (targetRouteName.includes('苍南') && !targetRouteName.includes('公交')) {
-                        targetRouteName = targetRouteName.replace('苍南', '苍南公交');
-                    }
-                }
-            }
+                    // 高亮关键词
+                    const title = highlightKeyword(route.name, keyword);
+                    const desc = highlightKeyword(route.desc, keyword);
 
-            // 验证并跳转
-            if (targetRouteName) {
-                // 统一格式（首字母大写，如k001路→K001路）
-                targetRouteName = targetRouteName.replace(/([a-zA-Z0-9]+路)/, (match) => {
-                    return match.toUpperCase().replace('路', '路');
+                    // 渲染条目（含POV、线路图、概况按钮）
+                    item.innerHTML = `
+                        <div class="item-content">
+                            <div class="result-title">${title}</div>
+                            <div class="result-desc">${desc}</div>
+                        </div>
+                        <div class="item-buttons">
+                            <button class="item-btn" onclick="openUrl('${route.povUrl}')">POV</button>
+                            <button class="item-btn" onclick="openUrl('${route.routeUrl}')">线路图</button>
+                            <button class="item-btn" onclick="openUrl('${route.overviewUrl}')">概况</button>
+                        </div>
+                    `;
+
+                    // 点击条目主体跳转到详情页
+                    item.querySelector('.item-content').onclick = () => {
+                        window.open(route.url, '_blank');
+                        searchInput.value = '';
+                        resultContainer.style.display = 'none';
+                    };
+
+                    resultContainer.appendChild(item);
                 });
-                const targetUrl = baseUrl + encodeURIComponent(targetRouteName);
-
-                // 打开新窗口跳转
-                window.open(targetUrl, '_blank');
-
-                // 可选：验证链接是否存在（如需后端支持，可添加接口校验）
-                // fetch(targetUrl).catch(() => {
-                //     alert(`未找到"${targetRouteName}"的公交线路页面，已尝试跳转至对应地址`);
-                // });
             } else {
-                alert(`未识别到有效的公交线路格式，请输入如"龙港5路"、"苍南LJ08路"、"K001路"等格式`);
+                // 无结果提示
+                resultContainer.style.display = 'block';
+                resultContainer.innerHTML = `<div class="no-result">未找到"${keyword}"相关线路，可尝试输入：龙港5路、苍南101路、K001路</div>`;
             }
-
-            // 清空搜索框
-            searchInput.value = '';
         }
 
-        // 支持回车触发搜索
+        // 按钮点击跳转通用函数
+        function openUrl(url) {
+            window.open(url, '_blank');
+            // 可选：点击按钮后清空搜索框和结果
+            document.getElementById('search-input').value = '';
+            document.getElementById('search-result').style.display = 'none';
+        }
+
+        // 交互优化：回车搜索 + 点击空白处关闭结果
         document.getElementById('search-input').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 searchRoute();
             }
         });
+
+        document.addEventListener('click', function (e) {
+            const searchContainer = document.querySelector('.search-container');
+            const resultContainer = document.getElementById('search-result');
+            if (!searchContainer.contains(e.target)) {
+                resultContainer.style.display = 'none';
+            }
+        });
+
+        // 输入实时联想（保留原有逻辑）
+        document.getElementById('search-input').addEventListener('input', function () {
+            if (this.value.trim().length >= 1) {
+                searchRoute();
+            } else {
+                document.getElementById('search-result').style.display = 'none';
+            }
+        });
+
+        // 暴露全局函数，方便按钮调用
+        window.searchRoute = searchRoute;
+        window.openUrl = openUrl;
     </script>
 </body>
 
