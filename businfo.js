@@ -374,10 +374,10 @@ const busRoutes = [
         "alias": ["龙港-水头", "龙港-水头班线"],
         "area": "龙港/水头",
         "desc": "龙港-水头班线：龙港客运中心 - 水头客运中心，连接龙港市与平阳县水头镇",
-        "url": "../龙港-水头班线.html",
+        "url": "./龙港-水头班线.html",
         "povUrl": "https://www.bilibili.com/video/BV1hi9YBLEUD/",
         "routeUrl": "https://map.baidu.com/search/%E6%B0%B4%E5%A4%B4-%E9%BE%99%E6%B8%AF/@13403640.02879208,3179924.16,13.52z?querytype=s&wd=%E6%B0%B4%E5%A4%B4-%E9%BE%99%E6%B8%AF&pn=0&device_ratio=2&da_src=shareurl",
-        "overviewUrl": "../龙港-水头班线.html"
+        "overviewUrl": "./龙港-水头班线.html"
     },
     {
         "name": "苍南公交101路",
