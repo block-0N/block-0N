@@ -337,7 +337,7 @@
             color: #666;
             font-size: 0.9rem;
             line-height: 1.5;
-            text-indent: 2em;
+            /* text-indent: 2em; */
         }
 
         .tips-section {
@@ -450,13 +450,13 @@
             <a href="longgangbuspov.html" class="area-link" target="_blank" rel="noopener noreferrer">
                 龙港公交POV合集
             </a>
-            <p class="area-desc">包含龙港1路、2路、5路等多条公交线路的POV视频</p>
+            <p class="area-desc">龙港1路、2路、5路等多条公交线路的POV视频</p>
         </li>
         <li class="area-item">
             <a href="cangnanbuspov.html" class="area-link" target="_blank" rel="noopener noreferrer">
                 苍南公交POV合集
             </a>
-            <p class="area-desc">包含苍南101路、106路、107路等多条公交线路的POV视频</p>
+            <p class="area-desc">苍南101路、106路、107路等多条公交线路的POV视频</p>
         </li>
     </ul>
 
@@ -466,7 +466,7 @@
             <a href="longgangbusroute.html" class="area-link" target="_blank" rel="noopener noreferrer">
                 龙港公交路线图合集
             </a>
-            <p class="area-desc">包含龙港1路、2路、5路等多条公交线路的路线图</p>
+            <p class="area-desc">龙港1路、2路、5路等多条公交线路的路线图</p>
         </li>
         <li class="area-item">
             <a href="cangnanbusroute.html" class="area-link" target="_blank" rel="noopener noreferrer">
@@ -482,13 +482,23 @@
             <a href="longgangbusintroduction.html" class="area-link" target="_blank" rel="noopener noreferrer">
                 龙港公交线路概况合集
             </a>
-            <p class="area-desc">包含龙港1路、2路、5路等多条公交线路的概况</p>
+            <p class="area-desc">龙港1路、2路、5路等多条公交线路的概况</p>
         </li>
         <li class="area-item">
             <a href="cangnanbusintroduction.html" class="area-link" target="_blank" rel="noopener noreferrer">
                 苍南公交线路概况合集
             </a>
             <p class="area-desc">苍南101路、102路、103路等多条公交线路的概况</p>
+        </li>
+    </ul>
+
+    <h2 class="category-title">站点信息合集</h2>
+    <ul class="area-list">
+        <li class="area-item">
+            <a href="station.html" class="area-link" target="_blank" rel="noopener noreferrer">
+                主要站点信息合集
+            </a>
+            <p class="area-desc">龙港客运中心、平阳动车站等多个主要站点的信息</p>
         </li>
     </ul>
 
@@ -515,240 +525,8 @@
         <p>温馨提示：本平台为公益性信息平台，无任何商业运营行为</p>
         <p>数据更新时间：2026年4月</p>
     </div>
-
+    <script src="./businfo.js"></script>
     <script>
-        const busRoutes = [
-            {
-                "name": "龙港公交1路",
-                "alias": ["龙港1路", "1路"],
-                "area": "龙港",
-                "desc": "龙港1路：龙港客运中心 - 现代印务港，途经人民路、世纪大道、新城产业园，覆盖龙港主城区与新城核心产业区",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交1路",
-                "povUrl": "https://www.bilibili.com/video/BV1c6U5BAEA6",
-                "routeUrl": "1路.jpg",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交1路"
-            },
-            {
-                "name": "龙港公交2路",
-                "alias": ["龙港2路", "2路"],
-                "area": "龙港",
-                "desc": "龙港2路：龙港客运中心 - 经济产业发展中心，途经龙翔路、临港大道，覆盖龙港主城区与新城住宅区",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交2路",
-                "povUrl": "https://www.bilibili.com/video/BV1QqqrBfEJh",
-                "routeUrl": "https://map.baidu.com/search/%E9%BE%99%E6%B8%AF2%E8%B7%AF/@13420860.889029704,3174952.71,14.5z?querytype=s&da_src=shareurl&wd=%E9%BE%99%E6%B8%AF2%E8%B7%AF&c=178&src=0&wd2=%E6%B8%A9%E5%B7%9E%E5%B8%82&pn=0&sug=1&l=13&b=(13407110,3156219;13456006,3180379)&from=webmap&biz_forward=%7B%22scaler%22:2,%22styles%22:%22pl%22%7D&sug_forward=7dbcc3b69768d5cf130daad7&device_ratio=2",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交2路"
-            },
-            {
-                "name": "龙港公交5路",
-                "alias": ["龙港5路", "5路"],
-                "area": "龙港",
-                "desc": "龙港5路：龙港客运中心 - 青龙湖实验室，接驳温医大附一院龙港院区、政务客厅、新城片区",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交5路",
-                "povUrl": "https://www.bilibili.com/video/BV1xBrDB9EfZ",
-                "routeUrl": "5路.png",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交5路"
-            },
-            {
-                "name": "龙港公交6路",
-                "alias": ["龙港6路", "6路"],
-                "area": "龙港",
-                "desc": "龙港6路：城中首末站 - 陈家堡，途经龙港城区、埭金线",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交6路",
-                "povUrl": "https://www.bilibili.com/video/BV1QU2tBjEh5",
-                "routeUrl": "6路.jpeg",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交6路"
-            },
-            {
-                "name": "龙港公交7路",
-                "alias": ["龙港7路", "7路"],
-                "area": "龙港",
-                "desc": "龙港7路：龙港客运中心 - 陈处社区，途经苍南县钱库镇，是芦浦、海城等片区前往龙港城区的主干线路之一",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交7路",
-                "povUrl": "https://www.bilibili.com/video/BV1a7BxBnEPB",
-                "routeUrl": "7路.jpeg",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交7路"
-            },
-            {
-                "name": "龙港公交8路",
-                "alias": ["龙港8路", "8路"],
-                "area": "龙港",
-                "desc": "龙港8路（园博会专线）：城市公园 - 体育中心，园博公交接驳专线，途经青龙湖、图书馆、月湖公园",
-                "url": "龙港公交8路.html",
-                "povUrl": "https://www.bilibili.com/video/BV1g7QJBPErF",
-                "routeUrl": "8路.jpg",
-                "overviewUrl": "龙港公交8路.html"
-            },
-            {
-                "name": "龙港公交9路",
-                "alias": ["龙港9路", "9路"],
-                "area": "龙港",
-                "desc": "龙港9路：龙港客运中心 - 新城华府，连接龙港城区、白沙、海城、芦浦及舥艚，是龙翔路的主干线路",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交9路",
-                "povUrl": "https://www.bilibili.com/video/BV17gCQBSEQm",
-                "routeUrl": "9路.jpeg",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交9路"
-            },
-            {
-                "name": "龙港公交10路",
-                "alias": ["龙港10路", "10路"],
-                "area": "龙港",
-                "desc": "龙港10路：月湖公园 - 礼品城，连接龙港新城中央商务区、城东工业园区、人民路、龙港大道及礼品城",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交10路",
-                "povUrl": "https://www.bilibili.com/video/BV1hjUWBzEiZ",
-                "routeUrl": "10路.jpeg",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交10路"
-            },
-            {
-                "name": "龙港公交11路",
-                "alias": ["龙港11路", "11路"],
-                "area": "龙港",
-                "desc": "龙港11路：城中首末站 - 龙源社区，途经人民路、镇前路、西一路、东新街、湖振线、湖前",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交11路",
-                "povUrl": "https://www.bilibili.com/video/BV1uzmqBMEuH",
-                "routeUrl": "11路.jpeg",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交11路"
-            },
-            {
-                "name": "龙港公交12路",
-                "alias": ["龙港12路", "12路"],
-                "area": "龙港",
-                "desc": "龙港12路：韩家垟 - 姜立夫故居，连接韩家垟、人民路、西一街、客运中心、金田集团、新雅工业园、小微企业创业园、凰浦及麟头",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交12路",
-                "povUrl": "https://www.bilibili.com/video/BV1n3mABbEDH",
-                "routeUrl": "https://map.baidu.com/search/龙港12路/@13411153.142780084,3174133.92,12.83z?querytype=s&da_src=shareurl&wd=龙港12路&c=178&src=0&wd2=温州市&pn=0&sug=1&l=13&b=(13397442,3167112;13421730,3191112)&from=webmap&biz_forward=%7B",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交12路"
-            },
-            {
-                "name": "龙港公交13路",
-                "alias": ["龙港13路", "13路"],
-                "area": "龙港",
-                "desc": "龙港13路：城中首末站 - 姜立夫故居，途经西三街、龙港大道、姜立夫故居、中对口社区、江山社区、湖前",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交13路",
-                "povUrl": "https://www.bilibili.com/video/BV1FCydBqET6",
-                "routeUrl": "13路.jpg",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交13路"
-            },
-            {
-                "name": "龙港公交15路",
-                "alias": ["龙港15路", "15路"],
-                "area": "龙港",
-                "desc": "龙港15路：城中首末站 - 长连屋，城郊居民区接驳线，连接三垟社区、湖前",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交15路",
-                "povUrl": "https://www.bilibili.com/video/BV1VkxEzoEHD",
-                "routeUrl": "15路.jpeg",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交15路"
-            },
-            {
-                "name": "龙港公交16路",
-                "alias": ["龙港16路", "16路"],
-                "area": "龙港",
-                "desc": "龙港16路：城中首末站 - 上对口，连接三垟社区、湖前、中对口社区",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交156路",
-                "povUrl": "https://www.bilibili.com/video/BV1gTw1zAEaJ",
-                "routeUrl": "16路.jpeg",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交16路"
-            },
-            {
-                "name": "龙港公交17路",
-                "alias": ["龙港17路", "17路"],
-                "area": "龙港",
-                "desc": "龙港17路：温州医科大学附属第一医院龙港院区 - 滨江社区，途径新城大道、世纪大道、人民路、通港路、西一路、宜山镇",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交17路",
-                "povUrl": "https://www.bilibili.com/video/BV1qRCQBUETX",
-                "routeUrl": "17路.jpeg",
-                "overviewUrl": "https://wiki.wzbus.net/wiki/龙港公交17路"
-            },
-            {
-                "name": "龙港公交B5路",
-                "alias": ["龙港B5路", "B5路"],
-                "area": "龙港",
-                "desc": "龙港B5路：湖前西桥首末站 - 祥龙里首末站，湖前—老城—新城社区巴士",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交B5路",
-                "povUrl": "longgangbuspov.html#B5路",
-                "routeUrl": "longgangbusroute.html#B5路",
-                "overviewUrl": "longgangbusintroduction.html#B5路"
-            },
-            {
-                "name": "龙港公交801路",
-                "alias": ["龙港801路", "801路"],
-                "area": "龙港",
-                "desc": "龙港801路：龙港城区 - 金乡镇，龙港东部城乡跨镇快线",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交801路",
-                "povUrl": "longgangbuspov.html#801路",
-                "routeUrl": "longgangbusroute.html#801路",
-                "overviewUrl": "longgangbusintroduction.html#801路"
-            },
-            {
-                "name": "龙港公交803路",
-                "alias": ["龙港803路", "803路"],
-                "area": "龙港",
-                "desc": "龙港803路：温医大附一院龙港院区 - 石砰，龙港—金乡—石砰长途城乡线，分段票价2-5元",
-                "url": "https://wiki.wzbus.net/wiki/龙港公交803路",
-                "povUrl": "longgangbuspov.html#803路",
-                "routeUrl": "longgangbusroute.html#803路",
-                "overviewUrl": "longgangbusintroduction.html#803路"
-            },
-            {
-                "name": "苍南公交101路",
-                "alias": ["苍南101路", "101路"],
-                "area": "苍南",
-                "desc": "苍南101路：灵溪客运站 - 龙港大桥，灵溪龙港跨区域城市主线",
-                "url": "https://wiki.wzbus.net/wiki/苍南公交101路",
-                "povUrl": "cangnanbuspov.html#101路",
-                "routeUrl": "cangnanbusroute.html#101路",
-                "overviewUrl": "cangnanbusintroduction.html#101路"
-            },
-            {
-                "name": "苍南公交105路",
-                "alias": ["苍南105路", "105路"],
-                "area": "苍南",
-                "desc": "苍南105路：苍南书城 - 合景天玺，灵溪城区内环主线，途经人民医院、红星村",
-                "url": "https://wiki.wzbus.net/wiki/苍南公交105路",
-                "povUrl": "cangnanbuspov.html#105路",
-                "routeUrl": "cangnanbusroute.html#105路",
-                "overviewUrl": "cangnanbusintroduction.html#105路"
-            },
-            {
-                "name": "苍南公交106路",
-                "alias": ["苍南106路", "106路"],
-                "area": "苍南",
-                "desc": "苍南106路：苍南动车站 - 金乡，覆盖苍南东部灵溪、宜山、金乡乡镇",
-                "url": "https://wiki.wzbus.net/wiki/苍南公交106路",
-                "povUrl": "cangnanbuspov.html#106路",
-                "routeUrl": "cangnanbusroute.html#106路",
-                "overviewUrl": "cangnanbusintroduction.html#106路"
-            },
-            {
-                "name": "苍南公交111路",
-                "alias": ["苍南111路", "111路"],
-                "area": "苍南",
-                "desc": "苍南111路：余桥社区 - 江南新区，2026.4.17最新延伸调整",
-                "url": "https://wiki.wzbus.net/wiki/苍南公交111路",
-                "povUrl": "cangnanbuspov.html#111路",
-                "routeUrl": "cangnanbusroute.html#111路",
-                "overviewUrl": "cangnanbusintroduction.html#111路"
-            },
-            {
-                "name": "苍南LQ12路",
-                "alias": ["苍南LQ12路", "LQ12路"],
-                "area": "苍南",
-                "desc": "苍南LQ12路：苍南汽车北站 - 钱库车站，原LY12改线，灵溪—宜山—钱库跨镇城乡线",
-                "url": "https://wiki.wzbus.net/wiki/苍南LQ12路",
-                "povUrl": "cangnanbuspov.html#LQ12路",
-                "routeUrl": "cangnanbusroute.html#LQ12路",
-                "overviewUrl": "cangnanbusintroduction.html#LQ12路"
-            },
-            {
-                "name": "苍南龙港公交K001路",
-                "alias": ["K001路", "龙港K001", "苍南K001"],
-                "area": "龙港/苍南",
-                "desc": "K001路：龙港客运中心 ↔ 苍南动车站，龙港苍南城际直达快线，6:12-19:00运营",
-                "url": "https://wiki.wzbus.net/wiki/苍南龙港公交K001路",
-                "povUrl": "longgangbuspov.html#K001路",
-                "routeUrl": "longgangbusroute.html#K001路",
-                "overviewUrl": "longgangbusintroduction.html#K001路"
-            }
-        ];
 
         // 工具函数：关键词高亮
         function highlightKeyword(text, keyword) {
