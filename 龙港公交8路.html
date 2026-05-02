@@ -5,250 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>龙港公交8路</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Microsoft YaHei", "Heiti SC", sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            font-size: 14px;
-        }
-
-        .page-title {
-            text-align: center;
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin: 10px 0 20px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #2980b9;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        /* 并排布局 */
-        .top-row {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .top-row {
-                flex-direction: column;
-            }
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid #e8f4f8;
-            position: relative;
-            overflow: hidden;
-            flex: 1;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background-color: #3498db;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .card h2 {
-            font-size: 1.25rem;
-            color: #2c3e50;
-            margin: 0 0 15px;
-            padding-left: 10px;
-            border-left: 3px solid #3498db;
-        }
-
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1rem;
-            font-size: 14px;
-        }
-
-        .info-table tr {
-            border-bottom: 1px solid #f0f4f8;
-        }
-
-        .info-table tr:last-child {
-            border-bottom: none;
-        }
-
-        .info-table th,
-        .info-table td {
-            padding: 10px 8px;
-            text-align: left;
-            font-weight: normal;
-        }
-
-        .info-table th {
-            width: 30%;
-            color: #666;
-        }
-
-        .info-table td {
-            color: #333;
-        }
-
-        .fee {
-            background-color: #e8f4fd;
-            border: 1px solid #3498db;
-            border-radius: 8px;
-            padding: 12px;
-            text-align: center;
-            color: #2980b9;
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        .history {
-            list-style: none;
-            color: #555;
-            font-size: 14px;
-        }
-
-        .history li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 1rem;
-        }
-
-        .history li::before {
-            content: "-";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
-
-        .history ul {
-            margin-top: 6px;
-            margin-left: 1.2rem;
-            list-style: none;
-            color: #666;
-        }
-
-        .station-flex {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-            margin-top: 15px;
-        }
-
-        @media (min-width: 768px) {
-            .station-flex {
-                flex-direction: row;
-            }
-
-            .station-col {
-                flex: 1;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .footer {
-                margin-top: 30px;
-                font-size: 0.8rem;
-            }
-        }
-
-        .station-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-            font-size: 13px;
-        }
-
-        .station-table thead {
-            background-color: #e8f4fd;
-        }
-
-        .station-table th,
-        .station-table td {
-            padding: 8px 10px;
-            text-align: center;
-            border-bottom: 1px solid #f0f4f8;
-        }
-
-        .station-table th {
-            color: #2980b9;
-            font-weight: 600;
-        }
-
-        .station-table tbody tr:hover {
-            background-color: #f7fafc;
-        }
-
-        .num {
-            font-family: monospace;
-            color: #666;
-        }
-
-        .footer {
-            margin-top: 40px;
-            text-align: center;
-            padding: 20px 0;
-            color: #888;
-            font-size: 0.85rem;
-            border-top: 1px solid #e0e6ed;
-        }
-
-        p {
-            color: #555;
-            margin-bottom: 1rem;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        b {
-            color: #2c3e50;
-            font-weight: 500;
-        }
-
-        del {
-            color: #888;
-            opacity: 0.7;
-        }
-
-        sub {
-            color: #888;
-            font-size: 0.7rem;
-        }
-    </style>
+    <link rel="stylesheet" href="./busintro.css">
 </head>
 
 <body>
 
     <h1 class="page-title">龙港公交8路</h1>
+    <div class="card">
+        <h2>简介</h2>
+        <p>本文介绍的是于2026年开通的连接城市公园和体育中心的第二代8路。</p>
+        <p>关于2023年停运的、连接新兰社区和月湖公园的第一代8路，请见「<a href="https://wiki.wzbus.net/wiki/龙港公交8路 (第一代)">龙港公交8路 (第一代)</a>」。
+        </p>
+        <p>龙港公交<b>8路</b>是第十五届中国国际园林博览会龙港分会场园博公交接驳专线，往返于城市公园及体育中心。</p>
+    </div>
     <div class="top-row">
-
         <div class="card">
-            <p>龙港公交<b>8路</b>是第十五届中国国际园林博览会龙港分会场园博公交接驳专线，往返于城市公园及体育中心。</p>
             <h2>历史</h2>
             <ul class="history">
                 <li>2026年4月14日：开通<b>8路（园博会专线）</b>，往返于城市公园及体育中心。</li>
@@ -458,7 +229,6 @@
                         <tr>
                             <td colspan="2">往 城市公园 方向</td>
                         </tr>
-
                     </thead>
                     <tbody>
                         <tr>
@@ -474,29 +244,58 @@
         <p>乘坐园博专线还能收获独家纪念品！龙港公交特别推出限量版精品车票，票面设计将园博会LOGO与龙港地标剪影巧妙融合，采用环保材质，兼具收藏价值与绿色理念。欢迎乘客上车后自行取阅留念，每人限领一张，把这份限定的“龙港记忆”带回家。
         </p>
         <p>
-            <a
-                href="https://mmbiz.qpic.cn/mmbiz_png/1hHpFxg2JukqpY2iaU0Ybj9KYWZbw3K8HvibeVyQGWKbOXicS2cLZLNIssAhXm6ZJBYx1wdgzfoqbjdc49icXEAOy2eZCPuBs5nKZFx6oB3433k/640?wx_fmt=png&from=appmsg&watermark=1&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=6">
-                <img src="https://mmbiz.qpic.cn/mmbiz_png/1hHpFxg2JukqpY2iaU0Ybj9KYWZbw3K8HvibeVyQGWKbOXicS2cLZLNIssAhXm6ZJBYx1wdgzfoqbjdc49icXEAOy2eZCPuBs5nKZFx6oB3433k/640?wx_fmt=png&from=appmsg&watermark=1&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=6"
-                    alt="纪念车票">
+            <a href="./8路纪念车票.webp">
+                <img src="./8路纪念车票.webp" alt="纪念车票">
             </a>
         </p>
     </div>
     <div class="card">
         <h2>使用车辆</h2>
-        <figure class="mw-halign-center" typeof="mw:File/Thumb">
-            <a href="./8路用车.jpg" class="mw-file-description">
+        <div class="station-col">
+            <table class="station-table">
+                <thead>
+                    <tr>
+                        <td colspan="4">
+                            龙港8路 车辆列表
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>车号/车牌</th>
+                        <th>车型</th>
+                        <th>服务线路</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>浙C07029D</b></td>
+                        <td>HFF6702E9EV21</td>
+                        <td>8路</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><b>浙C07031D</b></td>
+                        <td>HFF6702E9EV21</td>
+                        <td>8路</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <figure>
+            <a href="./8路用车.jpg">
                 <img src="./8路用车.jpg" decoding="async" loading="lazy" width="100%">
             </a>
-            <p>
+            <figcaption>
                 <center>HFF6702E9EV21</center>
-            </p>
+            </figcaption>
         </figure>
     </div>
 
     <div class="footer">
         <p>温州县域公交信息平台 © 2026 版权所有</p>
         <p>温馨提示：本平台为公益性信息平台，无任何商业运营行为</p>
-        <p>数据更新时间：2026年4月</p>
+        <p>数据更新时间：2026年5月</p>
     </div>
 </body>
 
