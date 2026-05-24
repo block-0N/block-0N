@@ -1,22 +1,38 @@
-// 整行点击跳转 —— 自动匹配 businfo.js 里的线路URL
-document.querySelectorAll('.station-table tbody tr').forEach(tr => {
-    // 获取当前行的线路名，例如 "1路"
-    const routeName = tr.querySelector('td b').textContent.trim();
+function loadRouteDirections() {
+    const rows = document.querySelectorAll('.station-table tbody tr');
 
-    // 在 businfo.js 中找到同名线路
-    const route = busRoutes.find(item => item.name === routeName);
+    rows.forEach(tr => {
+        const routeName = tr.querySelector('td b').textContent.trim();
+        const directionCell = tr.querySelectorAll('td')[1];
 
-    // 如果找到有效URL，绑定点击跳转；否则绑定跳转到404
-    if (route && route.url && !route.url.includes('404.html')) {
-        tr.style.cursor = 'pointer'; // 鼠标变手型
-        tr.onclick = () => {
-            window.location.href = route.url; // 当前页打开
-        };
-    } else {
-        // 未找到线路、无URL、URL包含404时，点击跳转到404页面
-        tr.style.cursor = 'pointer'; // 保持鼠标手型（可选）
-        tr.onclick = () => {
-            window.location.href = '../404.html'; // 跳转到上级目录的404.html
-        };
-    }
+        const route = busRoutes.find(item => item.name === routeName);
+
+        if (route && route.desc) {
+            const reg = /[:：]\s*([^，,]+)/;
+            const match = route.desc.match(reg);
+            if (match && match[1]) {
+                directionCell.textContent = match[1].trim();
+            }
+        }
+    });
+}
+
+function bindRowClick() {
+    document.querySelectorAll('.station-table tbody tr').forEach(tr => {
+        const routeName = tr.querySelector('td b').textContent.trim();
+        const route = busRoutes.find(item => item.name === routeName);
+
+        tr.style.cursor = 'pointer';
+
+        if (route && route.url && !route.url.includes('404.html')) {
+            tr.onclick = () => window.location.href = route.url;
+        } else {
+            tr.onclick = () => window.location.href = '../404.html';
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    loadRouteDirections();
+    bindRowClick();
 });
