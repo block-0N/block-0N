@@ -535,7 +535,7 @@ const busRoutes = [
         "area": "苍南",
         "desc": "",
         "url": "https://wiki.wzbus.net/wiki/苍南公交202路",
-        "povUrl": "404.html",
+        "povUrl": "https://www.bilibili.com/video/BV16wGS6MEZD",
         "routeUrl": "202路.png",
         "overviewUrl": "https://wiki.wzbus.net/wiki/苍南公交202路"
     },
@@ -896,7 +896,7 @@ const busRoutes = [
         "desc": "",
         "url": "https://wiki.wzbus.net/wiki/苍南公交QP38路",
         "povUrl": "404.html",
-        "routeUrl": "404.html",
+        "routeUrl": "https://map.baidu.com/search/%E8%8B%8D%E5%8D%97qp38%E8%B7%AF/@13424925.11182746,3163273.5549999997,15.12z?querytype=s&wd=%E8%8B%8D%E5%8D%97QP38%E8%B7%AF&c=178&pn=0&device_ratio=2&da_src=shareurl",
         "overviewUrl": "https://wiki.wzbus.net/wiki/苍南公交QP38路"
     },
     {
@@ -985,7 +985,7 @@ const busRoutes = [
         "area": "苍南",
         "desc": "",
         "url": "https://wiki.wzbus.net/wiki/苍南公交MY59路",
-        "povUrl": "404.html",
+        "povUrl": "https://www.bilibili.com/video/BV1aXG16mE41",
         "routeUrl": "404.html",
         "overviewUrl": "https://wiki.wzbus.net/wiki/苍南公交MY59路"
     },

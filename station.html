@@ -14,19 +14,29 @@
 
 <body>
     <h1 class="page-title">主要站点信息合集</h1>
+    <ul class="bus-list" id="busList"></ul>
+    <script src="./stationinfo.js"></script>
+    <script>
+        const base = './stationinfo/';
+        const listDom = document.getElementById('busList');
+        listDom.innerHTML = '';
 
-    <ul class="bus-list">
-        <li class="bus-item">
-            <a href="./stationinfo/人民路车站.html" class="bus-link" target="_blank" rel="noopener noreferrer">
-                人民路车站
-            </a>
-        </li>
-        <li class="bus-item">
-            <a href="./stationinfo/龙港客运中心.html" class="bus-link" target="_blank" rel="noopener noreferrer">
-                龙港客运中心
-            </a>
-        </li>
-    </ul>
+        // 中文排序
+        const files = siteNames.sort((a, b) => a.localeCompare(b, 'zh-CN')).map(name => name + '.html');
+
+        files.forEach(f => {
+            const li = document.createElement('li');
+            li.className = 'bus-item';
+            const a = document.createElement('a');
+            a.className = 'bus-link';
+            a.href = base + f;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.textContent = f.replace('.html', '');
+            li.appendChild(a);
+            listDom.appendChild(li);
+        })
+    </script>
 </body>
 
 </html>

@@ -4,246 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>温州县域公交·龙港-苍南公交</title>
+    <title>温州县域公交</title>
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="./indexstyle.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Microsoft YaHei", "Heiti SC", sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            max-width: 1000px;
-            /* 适度加宽适配新增内容 */
-            margin: 0 auto;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .search-result {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-top: 8px;
-            max-height: 300px;
-            overflow-y: auto;
-            z-index: 100;
-            display: none;
-        }
-
-        .search-result-item {
-            padding: 12px 20px;
-            cursor: pointer;
-            border-bottom: 1px solid #f0f4f8;
-            transition: background-color 0.2s;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .search-result-item:hover {
-            background-color: #e8f4fd;
-        }
-
-        .search-result-item:last-child {
-            border-bottom: none;
-        }
-
-        .result-title {
-            font-weight: 600;
-            color: #2980b9;
-            margin-bottom: 4px;
-        }
-
-        .result-desc {
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        .highlight {
-            color: #e74c3c;
-            font-weight: bold;
-        }
-
-        .no-result {
-            padding: 20px;
-            text-align: center;
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        .header-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #e0e6ed;
-        }
-
-        .nav-logo {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #2980b9;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #555;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
-
-        .nav-link:hover {
-            color: #2980b9;
-            font-weight: 500;
-        }
-
-        /* 基础容器 - 调整为flex布局，适配搜索框+按钮 */
-        .search-container {
-            position: relative;
-            width: 400px;
-            margin: 20px auto;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* 搜索输入框 */
-        .search-input {
-            width: 100%;
-            padding: 12px 20px;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            outline: none;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .search-input:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        /* 新增：搜索按钮样式 */
-        .search-btn {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .search-btn:hover {
-            background-color: #1d4ed8;
-        }
-
-        .search-btn:active {
-            background-color: #1e40af;
-        }
-
-        /* 下拉框（统一用search-result，废弃search-dropdown） */
-        .search-dropdown {
-            display: none;
-        }
-
-        /* 条目文本 */
-        .item-text {
-            flex: 1;
-            font-size: 14px;
-            color: #111827;
-        }
-
-        /* 按钮组 */
-        .item-buttons {
-            display: flex;
-            gap: 8px;
-        }
-
-        /* 功能按钮 */
-        .item-btn {
-            padding: 4px 10px;
-            border: 1px solid #e5e7eb;
-            border-radius: 4px;
-            background: #fff;
-            font-size: 12px;
-            color: #374151;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .item-btn:hover {
-            border-color: #2563eb;
-            color: #2563eb;
-            background: #f9fafb;
-        }
-
-        .item-btn:disabled {
-            border-color: #f3f4f6;
-            color: #9ca3af;
-            cursor: not-allowed;
-            background: #fff;
-        }
-
-        /* 空状态 */
-        .empty-state {
-            padding: 20px;
-            text-align: center;
-            font-size: 14px;
-            color: #9ca3af;
-        }
-
-        /* 加载状态 */
-        .loading-state {
-            padding: 20px;
-            text-align: center;
-            font-size: 14px;
-            color: #6b7280;
-        }
-
-        /* 响应式适配 */
-        @media (max-width: 480px) {
-            .search-container {
-                width: 100%;
-                padding: 0 16px;
-            }
-
-            .item-btn {
-                padding: 2px 6px;
-                font-size: 11px;
-            }
-
-            .search-btn {
-                padding: 12px 16px;
-                font-size: 13px;
-            }
-        }
-
         .update-tip {
             background-color: #e8f4fd;
             border-left: 4px solid #3498db;
@@ -253,24 +20,6 @@
             border-radius: 5px;
             font-size: 0.9rem;
             color: #2c3e50;
-        }
-
-        .page-title {
-            text-align: center;
-            font-size: 2rem;
-            color: #2c3e50;
-            margin: 10px 0 20px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #2980b9;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        .category-title {
-            font-size: 1.3rem;
-            color: #2c3e50;
-            margin: 30px 0 15px;
-            padding-left: 10px;
-            border-left: 3px solid #3498db;
         }
 
         .area-list {
@@ -337,7 +86,6 @@
             color: #666;
             font-size: 0.9rem;
             line-height: 1.5;
-            /* text-indent: 2em; */
         }
 
         .tips-section {
@@ -346,13 +94,6 @@
             padding: 20px;
             margin: 30px 0;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .tips-title {
-            font-size: 1.2rem;
-            color: #2980b9;
-            margin-bottom: 15px;
-            font-weight: 600;
         }
 
         .tips-list {
@@ -365,40 +106,10 @@
             margin-bottom: 8px;
         }
 
-        .footer {
-            margin-top: 40px;
-            text-align: center;
-            padding: 20px 0;
-            color: #888;
-            font-size: 0.85rem;
-            border-top: 1px solid #e0e6ed;
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                gap: 10px;
-            }
-
-            .search-container {
-                max-width: 100%;
-            }
-        }
-
         @media (max-width: 600px) {
-            .header-nav {
-                flex-direction: column;
-                gap: 10px;
-                align-items: flex-start;
-            }
-
             .area-list {
                 grid-template-columns: 1fr;
                 gap: 15px;
-            }
-
-            .page-title {
-                font-size: 1.5rem;
-                margin: 15px 0 20px;
             }
 
             .category-title {
@@ -414,37 +125,33 @@
                 text-indent: 1em;
             }
 
-            .footer {
-                margin-top: 30px;
-                font-size: 0.8rem;
-            }
         }
     </style>
 </head>
 
 <body>
-    <header class="header-nav">
+    <header>
         <div class="nav-logo">温州县域公交</div>
-        <nav class="nav-menu">
+        <nav>
             <a href="https://www.mygolbs.com/home" class="nav-link">实时公交</a>
             <a href="about.html" class="nav-link">关于我们</a>
             <a href="tips.html" class="nav-link">乘车指南</a>
         </nav>
     </header>
 
+    <h1>温州县域公交·龙港-苍南公交</h1>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="输入公交线路" class="search-input">
+        <button id="search-btn" class="btn" onclick="searchRoute()">搜索</button>
+        <div id="search-result" class="search-result"></div>
+    </div>
+
     <div class="update-tip">
         <strong>更新提示：</strong> <a href="notice.html" class="nav-link">施工影响，部分公交班次调整，点此查看。</a>
     </div>
 
-    <h1 class="page-title">温州县域公交·龙港-苍南公交</h1>
-
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="输入公交线路" class="search-input">
-        <button id="search-btn" class="search-btn" onclick="searchRoute()">搜索</button>
-        <div id="search-result" class="search-result"></div>
-    </div>
-
-    <h2 class="category-title">POV视频合集</h2>
+    <h2>POV视频合集</h2>
     <ul class="area-list">
         <li class="area-item">
             <a href="longgangbuspov.html" class="area-link" target="_blank" rel="noopener noreferrer">
@@ -460,7 +167,7 @@
         </li>
     </ul>
 
-    <h2 class="category-title">路线图合集</h2>
+    <h2>路线图合集</h2>
     <ul class="area-list">
         <li class="area-item">
             <a href="longgangbusroute.html" class="area-link" target="_blank" rel="noopener noreferrer">
@@ -476,7 +183,7 @@
         </li>
     </ul>
 
-    <h2 class="category-title">线路概况合集</h2>
+    <h2>线路概况合集</h2>
     <ul class="area-list">
         <li class="area-item">
             <a href="longgangbusintroduction.html" class="area-link" target="_blank" rel="noopener noreferrer">
@@ -492,7 +199,7 @@
         </li>
     </ul>
 
-    <h2 class="category-title">站点信息合集</h2>
+    <h2>站点信息合集</h2>
     <ul class="area-list">
         <li class="area-item">
             <a href="station.html" class="area-link" target="_blank" rel="noopener noreferrer">
@@ -502,7 +209,7 @@
         </li>
     </ul>
 
-    <h2 class="category-title">市内其他线路</h2>
+    <h2>市内其他线路</h2>
     <ul class="area-list">
         <li class="area-item">
             <a href="https://wiki.wzbus.net/wiki/首页" class="area-link" target="_blank" rel="noopener noreferrer">
@@ -520,121 +227,14 @@
         </ul>
     </div>
 
-    <div class="footer">
+    <footer>
         <p>温州县域公交信息平台 © 2026 版权所有</p>
         <p>温馨提示：本平台为公益性信息平台，无任何商业运营行为</p>
-        <p>数据更新时间：2026年4月</p>
-    </div>
+        <p>数据更新时间：2026年6月</p>
+    </footer>
     <script src="./businfo.js"></script>
-    <script>
-
-        // 工具函数：关键词高亮
-        function highlightKeyword(text, keyword) {
-            if (!keyword) return text;
-            const reg = new RegExp(keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-            return text.replace(reg, (match) => `<span class="highlight">${match}</span>`);
-        }
-
-        // 核心搜索逻辑：多维度模糊匹配 + 渲染按钮
-        function searchRoute() {
-            const searchInput = document.getElementById('search-input');
-            const resultContainer = document.getElementById('search-result');
-            const keyword = searchInput.value.trim().toLowerCase();
-
-            // 清空结果容器
-            resultContainer.innerHTML = '';
-            resultContainer.style.display = 'none';
-
-            // 空输入校验
-            if (!keyword) {
-                alert('请输入公交线路号、区域或关键词（如：5路、龙港、K001）');
-                return;
-            }
-
-            // 多维度匹配线路
-            const matchedRoutes = busRoutes.filter(route => {
-                return route.name.toLowerCase().includes(keyword) ||
-                    route.alias.some(alias => alias.toLowerCase().includes(keyword)) ||
-                    route.area.toLowerCase().includes(keyword) ||
-                    route.desc.toLowerCase().includes(keyword);
-            });
-
-            // 展示搜索结果（含按钮）
-            if (matchedRoutes.length > 0) {
-                resultContainer.style.display = 'block';
-                matchedRoutes.forEach(route => {
-                    const item = document.createElement('div');
-                    item.className = 'search-result-item';
-
-                    // 高亮关键词
-                    const title = highlightKeyword(route.name, keyword);
-                    const desc = highlightKeyword(route.desc, keyword);
-
-                    // 渲染条目（含POV、线路图、概况按钮）
-                    item.innerHTML = `
-                        <div class="item-content">
-                            <div class="result-title">${title}</div>
-                            <div class="result-desc">${desc}</div>
-                        </div>
-                        <div class="item-buttons">
-                            <button class="item-btn" onclick="openUrl('${route.povUrl}')">POV</button>
-                            <button class="item-btn" onclick="openUrl('${route.routeUrl}')">线路图</button>
-                            <button class="item-btn" onclick="openUrl('${route.overviewUrl}')">概况</button>
-                        </div>
-                    `;
-
-                    // 点击条目主体跳转到详情页
-                    item.querySelector('.item-content').onclick = () => {
-                        window.open(route.url, '_blank');
-                        searchInput.value = '';
-                        resultContainer.style.display = 'none';
-                    };
-
-                    resultContainer.appendChild(item);
-                });
-            } else {
-                // 无结果提示
-                resultContainer.style.display = 'block';
-                resultContainer.innerHTML = `<div class="no-result">未找到"${keyword}"相关线路，可尝试输入：龙港5路、苍南101路、K001路</div>`;
-            }
-        }
-
-        // 按钮点击跳转通用函数
-        function openUrl(url) {
-            window.open(url, '_blank');
-            // 可选：点击按钮后清空搜索框和结果
-            document.getElementById('search-input').value = '';
-            document.getElementById('search-result').style.display = 'none';
-        }
-
-        // 交互优化：回车搜索 + 点击空白处关闭结果
-        document.getElementById('search-input').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                searchRoute();
-            }
-        });
-
-        document.addEventListener('click', function (e) {
-            const searchContainer = document.querySelector('.search-container');
-            const resultContainer = document.getElementById('search-result');
-            if (!searchContainer.contains(e.target)) {
-                resultContainer.style.display = 'none';
-            }
-        });
-
-        // 输入实时联想（保留原有逻辑）
-        document.getElementById('search-input').addEventListener('input', function () {
-            if (this.value.trim().length >= 1) {
-                searchRoute();
-            } else {
-                document.getElementById('search-result').style.display = 'none';
-            }
-        });
-
-        // 暴露全局函数，方便按钮调用
-        window.searchRoute = searchRoute;
-        window.openUrl = openUrl;
-    </script>
+    <script src="./stationinfo.js"></script>
+    <script src="./searchinfo.js"></script>
 </body>
 
 </html>
